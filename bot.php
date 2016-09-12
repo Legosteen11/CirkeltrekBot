@@ -518,18 +518,13 @@ else if ($text == "/sieg" && $telegram->ReplyID()) {
 }
 
 //draai
-else if (strlen(strstr($text,"/draai"))>0 && $telegram->ReplyID() == null && strlen(strstr($text,"/draai")) == 0) {
+else if (strlen(strstr($text,"/draai"))>0 && $telegram->ReplyID() == null) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
 }
 
 //draai op reply
 else if ($text == "/draai" && $telegram->ReplyID()) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai($telegram->ReplyText()), 'reply_to_message_id' => $telegram->ReplyID()));
-}
-
-//draaitest
-else if ($text == "/draaitest" && $telegram->ReplyID() == null){
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draaitest(substr($text,6))));
 }
 
 //levededevs

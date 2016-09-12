@@ -47,19 +47,43 @@ function oorporno() {
     return $oorporno[$random];
 }
 
-function draaitest($text){
-    $search = 'a';
-    $replace = 'b';
-    $text = $text.explode();
-    $result = "";
-    for($x = 1; $x < sizeof($text); $x++){
-        for($y = 1; $y < sizeof($search); $y++){
-            if($text[$x] === $search[$y]){
-            $result += $replace[$y];
-			}
-		}
-	}
-    return strrev($result);
+function draai($text){
+	$chars = Array(
+		'a' => 'ɐ',
+		'b' => 'q',
+		'c' => 'ɔ',
+		'd' => 'p',
+		'e' => 'ǝ',
+		'f' => 'ɟ',
+		'g' => 'ƃ',
+		'h' => 'ɥ',
+		'i' => 'ı',
+		'j' => 'ɾ',
+		'k' => 'ʞ',
+		'l' => 'l',
+		'm' => 'ɯ',
+		'n' => 'u',
+		'o' => 'o',
+		'p' => 'd',
+		'q' => 'b',
+		'r' => 'ɹ',
+		's' => 's',
+		't' => 'ʇ',
+		'u' => 'n',
+		'v' => 'ʌ',
+		'w' => 'ʍ',
+		'x' => 'x',
+		'y' => 'ʎ',
+		'z' => 'z',
+		'.' => '˙',
+		',' => '\'',
+		'?' => '¿',
+		'!' => '¡',
+	);
+	
+	$gedraaid = str_replace(array_keys($chars), $chars, strrev($text));
+	return $gedraaid;
+
 }
 
 function papgrap() {
