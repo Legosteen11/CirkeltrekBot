@@ -3,7 +3,7 @@
 include("Telegram.php");
 include("functies.php");
 
-//stop en start
+//stop en start 
 if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
   if (file_exists(stop)) {
     unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
@@ -26,7 +26,6 @@ else if (strlen(strstr($text,"http"))>0) {
 else if ($text == "dit" && $telegram->ReplyID() && !file_exists(stop)) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->ReplyID()));
 }
-
 //kek
 else if ($text == "kek" && !file_exists(stop)) {
   if (rand(0,99) < 10) {
@@ -517,9 +516,9 @@ else if (strlen(strstr($text,"/sieg"))>0 && $telegram->ReplyID() == null) {
 else if ($text == "/sieg" && $telegram->ReplyID()) {
   $telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText(), 'de-de'), 'reply_to_message_id' => $telegram->ReplyID()));
 }
-/*
+
 //draai
-else if (strlen(strstr($text,"/draai"))>0 && $telegram->ReplyID() == null) {
+else if (strlen(strstr($text,"/draai"))>0 && $telegram->ReplyID() == null && strlen(strstr($text,"/draai")) == 0) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
 }
 
@@ -531,7 +530,7 @@ else if ($text == "/draai" && $telegram->ReplyID()) {
 //draaitest
 else if ($text == "/draaitest" && $telegram->ReplyID() == null){
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draaitest(substr($text,6))));
-}*/
+}
 
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {

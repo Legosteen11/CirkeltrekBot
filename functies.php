@@ -46,9 +46,6 @@ function oorporno() {
     $random = rand(0, $count);
     return $oorporno[$random];
 }
-/*function draaitest($text){
-    return "werkt niet kek";
-}
 
 function draaitest($text){
     $search = 'a';
@@ -59,11 +56,12 @@ function draaitest($text){
         for($y = 1; $y < sizeof($search); $y++){
             if($text[$x] === $search[$y]){
             $result += $replace[$y];
-        }
-    }
+			}
+		}
+	}
     return strrev($result);
 }
-*/
+
 function papgrap() {
     $result = null;
     $rss = new DOMDocument();
