@@ -51,6 +51,20 @@ function draai($text) {
 return 'we zijn bezig';
 }
 
+function draaitest($text){
+    $search = <etc>;
+    $replace = <etc>;
+    $text = $text.explode();
+    $result = "";
+    for($x = 0; $x < sizeof($text); $x++){
+        for($y = 0; $y < sizeof($search); $y++){
+            if($text[$x] === $search[$y]){
+            $result += $replace[$y];
+        }
+    }
+    return strrev($result);
+}
+
 function papgrap() {
     $result = null;
     $rss = new DOMDocument();
