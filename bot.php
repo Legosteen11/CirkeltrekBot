@@ -459,8 +459,8 @@ else if (strlen(strstr($text,"/fedora"))>0) {
 
 //nuleiland
 else if (strlen(strstr($text, "/nuleiland"))>0) {
-        $telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '0.0', 'longitude' => '0.0'));
-        $telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nullisland.png")));
+  $telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '0.0', 'longitude' => '0.0'));
+  $telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nullisland.png")));
 }
 
 //excuses
@@ -517,7 +517,7 @@ else if (strlen(strstr($text,"/sieg"))>0 && $telegram->ReplyID() == null) {
 else if ($text == "/sieg" && $telegram->ReplyID()) {
   $telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText(), 'de-de'), 'reply_to_message_id' => $telegram->ReplyID()));
 }
-
+/*
 //draai
 else if (strlen(strstr($text,"/draai"))>0 && $telegram->ReplyID() == null) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
@@ -531,7 +531,7 @@ else if ($text == "/draai" && $telegram->ReplyID()) {
 //draaitest
 else if ($text == "/draaitest" && $telegram->ReplyID() == null){
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draaitest(substr($text,6))));
-} 
+}*/
 
 //levededevs
 else if (strlen(strstr($text,"/levededevs"))>0) {
