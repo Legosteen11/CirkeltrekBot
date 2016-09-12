@@ -46,14 +46,17 @@ function oorporno() {
     $random = rand(0, $count);
     return $oorporno[$random];
 }
+function draaitest($text){
+    return "lol werkt niet";
+}
 
-function draai($text){
+function draaitest($text){
     $search = 'a';
     $replace = 'b';
     $text = $text.explode();
     $result = "";
-    for($x = 0; $x < sizeof($text); $x++){
-        for($y = 0; $y < sizeof($search); $y++){
+    for($x = 1; $x < sizeof($text); $x++){
+        for($y = 1; $y < sizeof($search); $y++){
             if($text[$x] === $search[$y]){
             $result += $replace[$y];
         }
