@@ -86,6 +86,42 @@ function draai($text){
 
 }
 
+function draaiweer($text) {
+	$chars = Array(
+		'a' => 'ɐ',
+		'b' => 'q',
+		'c' => 'ɔ',
+		'd' => 'p',
+		'e' => 'ǝ',
+		'f' => 'ɟ',
+		'g' => 'ƃ',
+		'h' => 'ɥ',
+		'i' => 'ı',
+		'j' => 'ɾ',
+		'k' => 'ʞ',
+		'l' => 'l',
+		'm' => 'ɯ',
+		'n' => 'u',
+		'o' => 'o',
+		'p' => 'd',
+		'q' => 'b',
+		'r' => 'ɹ',
+		's' => 's',
+		't' => 'ʇ',
+		'u' => 'n',
+		'v' => 'ʌ',
+		'w' => 'ʍ',
+		'x' => 'x',
+		'y' => 'ʎ',
+		'z' => 'z',
+		'.' => '˙',
+		',' => '\'',
+		'?' => '¿',
+		'!' => '¡',
+	);
+	return strrev(strtr($text,array_flip($chars)));
+}
+
 function papgrap() {
     $result = null;
     $rss = new DOMDocument();
