@@ -82,7 +82,11 @@ function draai($text){
 		'?' => '¿',
 		'!' => '¡',
 	);
-	return strtr($tekst,$chars);
+	if ($text == null) {
+		return 'Ik het niet \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD';
+	} else {
+		return strtr($tekst,$chars);
+	}
 
 }
 
@@ -119,7 +123,12 @@ function draaiweer($text) {
 		'?' => '¿',
 		'!' => '¡',
 	);
-	return strrev(strtr($text,array_flip($chars)));
+	
+	if ($text == null) {
+		return 'Ik het niet \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD';
+	} else {
+		return strrev(strtr($text,array_flip($chars)));
+	}
 }
 
 function papgrap() {
