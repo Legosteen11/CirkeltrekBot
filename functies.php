@@ -41,13 +41,14 @@ function zeg($tekst, $taal) {
 function oorporno() {
     $oorporno = array("http://www.youtube.com/watch?v=xdb-KNTBdqA",
                       "http://www.youtube.com/watch?v=hyB_VfrESNQ",
+                      "http://www.youtube.com/watch?v=VSv0w8egCYE",
                       "http://www.youtube.com/watch?v=_U2HsdbbDgI");
     $count = count($oorporno) - 1;
     $random = rand(0, $count);
     return $oorporno[$random];
 }
 
-function draai($text){
+function draai(strrev($text)){
 	$chars = Array(
 		'a' => 'ɐ',
 		'b' => 'q',
@@ -80,9 +81,7 @@ function draai($text){
 		'?' => '¿',
 		'!' => '¡',
 	);
-	$gedraaid = str_replace(array_keys($chars), $chars, strrev($text));
-	return $gedraaid;
-
+	return $gedraaid = str_replace(array_keys($chars), $chars);
 }
 
 function papgrap() {
