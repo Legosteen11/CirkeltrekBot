@@ -83,7 +83,7 @@ function draai($text){
 		'!' => '¡',
 	);
 	if ($text == null) {
-		return 'Ik het niet 😭😭😭';
+		return 'Ik het niet kunnen 😭😭😭';
 	} else {
 		return strtr($tekst,$chars);
 	}
@@ -125,7 +125,7 @@ function draaiweer($text) {
 	);
 	
 	if ($text == null) {
-		return 'Ik het niet 😭😭😭';
+		return 'Ik het niet kunnen 😭😭😭';
 	} else {
 		return strrev(strtr($text,array_flip($chars)));
 	}
