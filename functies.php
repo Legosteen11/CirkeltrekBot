@@ -47,11 +47,7 @@ function oorporno() {
     return $oorporno[$random];
 }
 
-function draai($text) {
-return 'we zijn bezig';
-}
-
-function draaitest($text){
+function draai($text){
     $search = <etc>;
     $replace = <etc>;
     $text = $text.explode();
