@@ -83,7 +83,7 @@ function draai($text){
 		'!' => '¡',
 	);
 	if ($text == null) {
-		return 'Ik het niet \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD';
+		return 'Ik het niet 😭😭😭';
 	} else {
 		return strtr($tekst,$chars);
 	}
@@ -125,7 +125,7 @@ function draaiweer($text) {
 	);
 	
 	if ($text == null) {
-		return 'Ik het niet \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD \xF0\x9F\x98\xAD';
+		return 'Ik het niet 😭😭😭';
 	} else {
 		return strrev(strtr($text,array_flip($chars)));
 	}
