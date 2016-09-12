@@ -80,7 +80,6 @@ function draai($text){
 		'?' => '¿',
 		'!' => '¡',
 	);
-	
 	$gedraaid = str_replace(array_keys($chars), $chars, strrev($text));
 	return $gedraaid;
 
