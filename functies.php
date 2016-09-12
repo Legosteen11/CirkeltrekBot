@@ -47,7 +47,7 @@ function oorporno() {
     return $oorporno[$random];
 }
 function draaitest($text){
-    return "lol werkt niet";
+    return "werkt niet kek";
 }
 
 function draaitest($text){
