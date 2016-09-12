@@ -49,7 +49,7 @@ function oorporno() {
 }
 
 function draai($text){
-	$tekst = strrev($text);
+	$tekst = strtolower(strrev($text));
 	$chars = Array(
 		'a' => 'ɐ',
 		'b' => 'q',
