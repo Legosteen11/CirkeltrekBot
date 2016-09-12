@@ -48,7 +48,8 @@ function oorporno() {
     return $oorporno[$random];
 }
 
-function draai(strrev($text)){
+function draai($text){
+	$tekst = strrev($text);
 	$chars = Array(
 		'a' => 'ɐ',
 		'b' => 'q',
@@ -81,7 +82,8 @@ function draai(strrev($text)){
 		'?' => '¿',
 		'!' => '¡',
 	);
-	return $gedraaid = str_replace(array_keys($chars), $chars);
+	return strtr($tekst,$chars);
+
 }
 
 function papgrap() {

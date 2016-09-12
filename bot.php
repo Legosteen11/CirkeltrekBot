@@ -28,7 +28,7 @@ else if ($text == "dit" && $telegram->ReplyID() && !file_exists(stop)) {
 }
 //kek
 else if ($text == "kek" && !file_exists(stop)) {
-  if (rand(0,99) < 10) {
+  if (rand(0,999) < 69) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Keʞ", 'reply_to_message_id' => $telegram->MessageID()));
   } else {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->Text(), 'reply_to_message_id' => $telegram->ReplyID()));
