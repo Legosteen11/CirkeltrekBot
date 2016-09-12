@@ -48,8 +48,8 @@ function oorporno() {
 }
 
 function draai($text){
-    $search = <etc>;
-    $replace = <etc>;
+    $search = 'a';
+    $replace = 'b';
     $text = $text.explode();
     $result = "";
     for($x = 0; $x < sizeof($text); $x++){
