@@ -517,14 +517,14 @@ else if ($text == "/sieg" && $telegram->ReplyID()) {
   $telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText(), 'de-de'), 'reply_to_message_id' => $telegram->ReplyID()));
 }
 
-//draai
-else if (strlen(strstr($text,"/draai"))>0 && $telegram->ReplyID() == null) {
-  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
-}
-
 //draai op reply
 else if ($text == "/draai" && $telegram->ReplyID()) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai($telegram->ReplyText()), 'reply_to_message_id' => $telegram->ReplyID()));
+}
+
+//draai
+else if (strlen(strstr($text,"/draai"))>0) {
+  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
 }
 
 //levededevs
