@@ -46,7 +46,7 @@ function oorporno() {
     $random = rand(0, $count);
     return $oorporno[$random];
 }
-function draaitest($text){
+/*function draaitest($text){
     return "werkt niet kek";
 }
 
@@ -63,7 +63,7 @@ function draaitest($text){
     }
     return strrev($result);
 }
-
+*/
 function papgrap() {
     $result = null;
     $rss = new DOMDocument();
