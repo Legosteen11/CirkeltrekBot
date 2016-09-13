@@ -49,6 +49,7 @@ function oorporno() {
 }
 
 function draai($text){
+/*
 	$tekst = strtolower(strrev($text));
 	$chars = Array(
 		'a' => 'ɐ',
@@ -99,7 +100,8 @@ if (stripos($str,$a) !== false) return true;
 }
 return false;
 }
-	}
+	}*/
+return 'haha dit moet gefixed worden';
 
 }
 
