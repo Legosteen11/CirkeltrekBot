@@ -537,6 +537,11 @@ else if (strlen(strstr($text,"benikrechts"))>0) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je bent helemaal rechts \xE2\x9C\x94 \xE2\x9C\x94", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
+//ud
+else if (strlen(strstr($text,"/ud"))>0) {
+  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
+}
+
 else if ($telegram->person() != false) {
   if ($telegram->person() == 'new') {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
