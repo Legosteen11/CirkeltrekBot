@@ -546,7 +546,8 @@ else if (strlen(strstr($text,"/ud"))>0) {
 }
 
 else if ($text == "hoer") {
-    $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov()[0], 'message_id' => markov()[1]));
+	$kek = markov();
+	$telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => $kek[0], 'message_id' => $kek[1]));
 }
 
 else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() == "Maartenwut") {
