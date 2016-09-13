@@ -545,7 +545,7 @@ else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-else if ($text == "hoer") {
+else if (strlen(strstr($text,"/markovs"))>0) {
     $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov("chatid"), 'message_id' => markov("messageid")));
 }
 
