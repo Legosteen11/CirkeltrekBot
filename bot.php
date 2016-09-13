@@ -2,7 +2,6 @@
 
 include("Telegram.php");
 include("functies.php");
-include ("query.php");
 
 //stop en start 
 if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
