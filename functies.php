@@ -100,14 +100,14 @@ function draai($text){
 		'y' => 'ʎ',
 		'z' => 'z',
 		'.' => '˙',
-		',' => '\'',
+		',' => "'",
 		'?' => '¿',
 		'!' => '¡',
 	);
 	if ($text == null) {
 		return 'Ik het niet kunnen 😭😭😭';
 	} else {
-		$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z', 'l');
+		$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z', 'l', "'");
 		$gefilterd = str_replace($arr,'',$text);
 		if (!contains($gefilterd, $chars)) {
 			return strtr($tekst,$chars);
