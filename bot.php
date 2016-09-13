@@ -532,6 +532,11 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Ik ben gemaakt door @Maartenwut met overgeporte code van de oude @FlippyBot gemaakt door @Flippylosaurus. Ook heb ik de @VochtigeBot overgenomen. Hoezo monopolie? \xF0\x9F\x98\x84 \xF0\x9F\x99\x88" . PHP_EOL . "https://github.com/Maartenwut/DeCirkeltrekBot"));
 }
 
+//benikrechts
+else if (strlen(strstr($text,"benikrechts"))>0) {
+  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je bent helemaal rechts \xE2\x9C\x94 \xE2\x9C\x94", 'reply_to_message_id' => $telegram->MessageID()));
+}
+
 else if ($telegram->person() != false) {
   if ($telegram->person() == 'new') {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
