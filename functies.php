@@ -14,7 +14,7 @@ function urbandictionary($word){
 	$dom->loadHTML(file_get_contents('http://urbandictionary.com/define.php?term=' . $word));
 	/* find all elements with "definition" class in the DOM using XPath */
 	$finder = new DomXPath($dom);
-	$className = 'definition';
+	$className = 'meaning';
 	$definitionArray = $finder->query("//*[contains(@class, '$className')]");
 	/* return the first definition */
 	return $definitionArray->item(0)->nodeValue;
