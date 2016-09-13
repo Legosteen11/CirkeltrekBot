@@ -2,12 +2,7 @@
 $bot_id = file_get_contents('./ignore/token');
 $telegram = new Telegram($bot_id);
 
-if (isset($telegram->QueryText())) {
-	$text = mb_strtolower($telegram->QueryText());
-} else {
-	$text = mb_strtolower($telegram->Text());
-}
-
+$text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
 function kopieerpasta($dir = 'assets/kopieerpasta') {
@@ -121,21 +116,6 @@ function draai($text){
 			return reverse(strtr($text,array_flip($chars)));
 		}
 	}
-}
-
-function inlineQueryText($title, $desc, $text) {
-	$results = array(
-		array(
-			"type" => 'article', 
-			"id" => "1", 
-			"title" => $title, 
-			"description" => $desc, 
-			"input_message_content" => array(
-				"message_text" => $text, 
-			)
-		)
-	);
-	return $results;
 }
 
 function papgrap() {
