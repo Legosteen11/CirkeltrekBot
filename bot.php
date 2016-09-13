@@ -545,11 +545,11 @@ else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-else if (strlen(strstr($text,"/markovklassieker"))>0) {
-	$telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov()[0], 'message_id' => markov()[1]));
+else if ($text == "hoer") {
+    $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov()[0], 'message_id' => markov()[1]));
 }
 
-if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() == "Maartenwut") {
+else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() == "Maartenwut") {
 	file_put_contents('./assets/markov/' . $telegram->MessageID(),$chat_id);
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Heb ik ff opgeslagen.', 'reply_to_message_id' => $telegram->MessageID()));
 }
