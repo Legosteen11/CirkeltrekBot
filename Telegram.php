@@ -125,6 +125,9 @@ class Telegram {
 	public function MessageID() {
 		return $this->data["message"]["message_id"];
 	}
+	public function ForwardFrom() {
+		return $this->data["message"]["forward_from"]["username"];
+	}
 	public function ChatID() {
 		return $this->data["message"]["chat"]["id"];
 	}
