@@ -48,8 +48,14 @@ function oorporno() {
     return $oorporno[$random];
 }
 
+function contains($str, array $arr) {
+	foreach($arr as $a) {
+		if (stripos($str,$a) !== false) return true;
+	}
+	return false;
+}
+
 function draai($text){
-/*
 	$tekst = strtolower(strrev($text));
 	$chars = Array(
 		'a' => 'ɐ',
@@ -83,26 +89,17 @@ function draai($text){
 		'?' => '¿',
 		'!' => '¡',
 	);
-if ($text == null) {
-return 'Ik het niet kunnen 😭😭😭';
-	} else {$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z');
-$gefilterd = str_replace($arr,'',$text);
-
-if (!contains($gefilterd, $chars)) {
-return strtr($tekst,$chars);
-}else{
-return strrev(strtr($text,array_flip($chars)));
-}
-
-function contains($str, array $arr) {
-foreach($arr as $a) {
-if (stripos($str,$a) !== false) return true;
-}
-return false;
-}
-	}*/
-return 'haha dit moet gefixed worden';
-
+	if ($text == null) {
+		return 'Ik het niet kunnen 😭😭😭';
+	} else {
+		$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z');
+		$gefilterd = str_replace($arr,'',$text);
+		if (!contains($gefilterd, $chars)) {
+			return strtr($tekst,$chars);
+		} else {
+			return strrev(strtr($text,array_flip($chars)));
+		}
+	}
 }
 
 function papgrap() {
