@@ -55,8 +55,22 @@ function contains($str, array $arr) {
 	return false;
 }
 
+function reverse ($string, $encoding = null) {
+    if ($encoding === null) {
+        $encoding = mb_detect_encoding($string);
+    }
+    $length = mb_strlen($string, $encoding);
+    $reversed = '';
+
+    while ($length-- > 0) {
+        $reversed .= mb_substr($string, $length, 1, $encoding);
+    }
+
+    return $reversed;
+}
+
 function draai($text){
-	$tekst = strtolower(strrev($text));
+	$tekst = strtolower(reverse($text));
 	$text = strtolower($text);
 	$chars = Array(
 		'a' => 'ɐ',
@@ -98,7 +112,7 @@ function draai($text){
 		if (!contains($gefilterd, $chars)) {
 			return strtr($tekst,$chars);
 		} else {
-			return strrev(strtr($text,array_flip($chars)));
+			return reverse(strtr($text,array_flip($chars)));
 		}
 	}
 }
