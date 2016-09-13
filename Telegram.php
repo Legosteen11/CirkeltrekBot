@@ -31,8 +31,8 @@ class Telegram {
         return $this->endpoint("sendMessage", $content);
     }
 
-    public function answerCallbackQuery(array $content) {
-        return $this->endpoint("answerCallbackQuery", $content);
+    public function answerInlineQuery(array $content) {
+        return $this->endpoint("answerInlineQuery", $content);
     }
 
     public function forwardMessage(array $content) {
@@ -115,6 +115,13 @@ class Telegram {
         $this->data = $data;
     }
 
+    public function QueryText() {
+        return $this->data["inline_query"]["query"];
+    }
+    public function QueryID() {
+        return $this->data["inline_query"]["id"];
+    }
+    
     public function Text() {
         return $this->data["message"] ["text"];
     }
