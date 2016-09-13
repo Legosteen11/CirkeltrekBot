@@ -525,6 +525,7 @@ else if ($text == "/draai" && $telegram->ReplyID()) {
 //draai
 else if (strlen(strstr($text,"/draai"))>0) {
   $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
+  $telegram->answerInlineQuery(array("inline_query_id" => $telegram->QueryID(), 'results' => json_encode(inlineQueryText('draai', 'Draai tekst!', draai(substr($text,6))))));
 }
 
 //levededevs
