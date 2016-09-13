@@ -539,7 +539,7 @@ else if (strlen(strstr($text,"benikrechts"))>0) {
 
 //ud
 else if (strlen(strstr($text,"/ud"))>0) {
-  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
+  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 else if ($telegram->person() != false) {
