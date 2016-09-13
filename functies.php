@@ -5,7 +5,6 @@ $query = mb_strtolower($telegram->QueryText());
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
-
 function urbandictionary($word){
 	/* format word */
 	$word = str_replace(' ','-',$word);
@@ -18,6 +17,14 @@ function urbandictionary($word){
 	$definitionArray = $finder->query("//*[contains(@class, '$className')]");
 	/* return the first definition */
 	return $definitionArray->item(0)->nodeValue;
+}
+
+function markov($dir = 'assets/markov') {
+	$files = glob($dir . '/*.*');
+	$file = array_rand($files);
+	$messageid = $files[$file];
+	$chatid = file_get_contents($files[$file]);
+	return array($chatid,$messageid);
 }
 
 function kopieerpasta($dir = 'assets/kopieerpasta') {
