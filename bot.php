@@ -549,7 +549,7 @@ else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-else if ($text == "hoer") {
+else if ($text == "adb") {
 	$kek = markov();
 	$telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => $kek[0], 'message_id' => $kek[1]));
 }
@@ -570,8 +570,4 @@ else if ($telegram->person() != false) {
 else if ($telegram->newphoto()) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha vet lelijke foto man doe weg'));
 }
-
-$kek = markov();
-echo $kek[0];
-echo $kek[1];
 ?>
