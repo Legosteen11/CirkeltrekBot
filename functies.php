@@ -1,7 +1,7 @@
 <?php
 $bot_id = file_get_contents('./ignore/token');
 $telegram = new Telegram($bot_id);
-
+$query = mb_strtolower($telegram->QueryText());
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
