@@ -82,53 +82,30 @@ function draai($text){
 		'?' => '¿',
 		'!' => '¡',
 	);
-	if ($text == null) {
-		return 'Ik het niet kunnen 😭😭😭';
+if ($text == null) {
+return 'Ik het niet kunnen 😭😭😭';
 	} else {
-		return strtr($tekst,$chars);
+		
 	}
 
+
+
+$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z');
+$gefilterd = str_replace($arr,'',$text);
+
+if (!contains($gefilterd, $chars)) {
+return strtr($tekst,$chars);
+}else{
+return strrev(strtr($text,array_flip($chars)));
 }
 
-function draaiweer($text) {
-	$chars = Array(
-		'a' => 'ɐ',
-		'b' => 'q',
-		'c' => 'ɔ',
-		'd' => 'p',
-		'e' => 'ǝ',
-		'f' => 'ɟ',
-		'g' => 'ƃ',
-		'h' => 'ɥ',
-		'i' => 'ı',
-		'j' => 'ɾ',
-		'k' => 'ʞ',
-		'l' => 'l',
-		'm' => 'ɯ',
-		'n' => 'u',
-		'o' => 'o',
-		'p' => 'd',
-		'q' => 'b',
-		'r' => 'ɹ',
-		's' => 's',
-		't' => 'ʇ',
-		'u' => 'n',
-		'v' => 'ʌ',
-		'w' => 'ʍ',
-		'x' => 'x',
-		'y' => 'ʎ',
-		'z' => 'z',
-		'.' => '˙',
-		',' => '\'',
-		'?' => '¿',
-		'!' => '¡',
-	);
-	
-	if ($text == null) {
-		return 'Ik het niet kunnen 😭😭😭';
-	} else {
-		return strrev(strtr($text,array_flip($chars)));
-	}
+function contains($str, array $arr) {
+foreach($arr as $a) {
+if (stripos($str,$a) !== false) return true;
+}
+return false;
+}
+
 }
 
 function papgrap() {
