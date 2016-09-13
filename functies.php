@@ -1,29 +1,28 @@
 <?php
 $bot_id = file_get_contents('./ignore/token');
 $telegram = new Telegram($bot_id);
-$query = mb_strtolower($telegram->QueryText());
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
 function urbandictionary($word){
-	/* format word */
 	$word = str_replace(' ','-',$word);
-	/* load the page DOM */
 	$dom = new DomDocument;
 	$dom->loadHTML(file_get_contents('http://urbandictionary.com/define.php?term=' . $word));
-	/* find all elements with "definition" class in the DOM using XPath */
 	$finder = new DomXPath($dom);
 	$className = 'meaning';
 	$definitionArray = $finder->query("//*[contains(@class, '$className')]");
-	/* return the first definition */
 	return $definitionArray->item(0)->nodeValue;
 }
 
-function markov() {
+function markov($kok) {
 	$files = glob('assets/markov/*');
 	$message = $files[array_rand($files)];
 	$chat = file_get_contents($message);
-	return array($chat,substr($message,14));
+	if ($kok == 'chatid') {
+		return $chat;
+	} else if ($kok == 'messageid') {
+		return substr($message,14);
+	}
 }
 
 function kopieerpasta($dir = 'assets/kopieerpasta') {

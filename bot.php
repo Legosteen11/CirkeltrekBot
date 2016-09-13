@@ -1,15 +1,11 @@
 <?php
-
 include("Telegram.php");
 include("functies.php");
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 if ($text == "/test") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Doet t'));
 }
+
 //stop en start 
 else if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	if (file_exists(stop)) {
@@ -549,9 +545,8 @@ else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-else if ($text == "adb") {
-	$kek = markov();
-	$telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => $kek[0], 'message_id' => $kek[1]));
+else if ($text == "hoer") {
+    $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov("chatid"), 'message_id' => markov("messageid")));
 }
 
 else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() == "Maartenwut") {
