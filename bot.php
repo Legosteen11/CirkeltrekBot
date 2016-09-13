@@ -3,6 +3,10 @@
 include("Telegram.php");
 include("functies.php");
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($text == "/test") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Doet t'));
 }
@@ -566,4 +570,8 @@ else if ($telegram->person() != false) {
 else if ($telegram->newphoto()) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha vet lelijke foto man doe weg'));
 }
+
+$kek = markov();
+echo $kek[0];
+echo $kek[1];
 ?>
