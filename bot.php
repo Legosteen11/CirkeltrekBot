@@ -4,7 +4,7 @@ include("Telegram.php");
 include("functies.php");
 include ("query.php");
 //stop en start 
-if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
+else if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
   if (file_exists(stop)) {
     unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
       $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
