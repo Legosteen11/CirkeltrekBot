@@ -118,6 +118,21 @@ function draai($text){
 	}
 }
 
+function inlineQueryText($type, $title, $desc, $text) {
+	$results = array(
+		array(
+			"type" => $type, 
+			"id" => "1", 
+			"title" => $title, 
+			"description" => $desc, 
+			"input_message_content" => array(
+				"message_text" => $text, 
+			)
+		)
+	);
+	return $results
+}
+
 function papgrap() {
     $result = null;
     $rss = new DOMDocument();
