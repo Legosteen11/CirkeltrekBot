@@ -3,8 +3,11 @@
 include("Telegram.php");
 include("functies.php");
 
+if ($text == "/test") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Doet t'));
+}
 //stop en start 
-if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
+else if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	if (file_exists(stop)) {
 	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
@@ -540,6 +543,16 @@ else if (strlen(strstr($text,"benikrechts"))>0) {
 //ud
 else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
+}
+
+else if (strlen(strstr($text,"/markovklassieker"))>0) {
+	$kek = markov();
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'from_chat_id' => $kek[0], 'message_id' => $kek[1]));
+}
+
+if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() == "Maartenwut") {
+	file_put_contents('./assets/markov/' . $telegram->MessageID(),$chat_id);
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Heb ik ff opgeslagen.', 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 else if ($telegram->person() != false) {
