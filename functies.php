@@ -135,7 +135,7 @@ function inlineQueryText($title, $desc, $text) {
 			)
 		)
 	);
-	return $results
+	return $results;
 }
 
 function papgrap() {
