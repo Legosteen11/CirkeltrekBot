@@ -237,8 +237,8 @@ function ik_ihe() {
 		$result .= $title;
 		$result .= PHP_EOL;
 	
-  $regex = '/https?\:\/\/[^\" ]+/i';
-  preg_match_all($regex, $link, $matches);
+	$regex = '/https?\:\/\/[^\" ]+/i';
+	preg_match_all($regex, $link, $matches);
 	
 		$result .= $matches[0][1];
 	}
