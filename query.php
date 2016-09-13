@@ -1,3 +1,4 @@
+<?php 
 if ($query == "dit") {
     $telegram->answerInlineQuery(array("inline_query_id" => $telegram->QueryID(), 'results' => json_encode($results)));
 
