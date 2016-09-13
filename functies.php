@@ -93,7 +93,7 @@ function draai($text){
 	if ($text == null) {
 		return 'Ik het niet kunnen 😭😭😭';
 	} else {
-		$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z');
+		$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z', 'l');
 		$gefilterd = str_replace($arr,'',$text);
 		if (!contains($gefilterd, $chars)) {
 			return strtr($tekst,$chars);
