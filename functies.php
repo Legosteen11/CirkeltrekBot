@@ -84,13 +84,7 @@ function draai($text){
 	);
 if ($text == null) {
 return 'Ik het niet kunnen 😭😭😭';
-	} else {
-		
-	}
-
-
-
-$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z');
+	} else {$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z');
 $gefilterd = str_replace($arr,'',$text);
 
 if (!contains($gefilterd, $chars)) {
@@ -105,6 +99,7 @@ if (stripos($str,$a) !== false) return true;
 }
 return false;
 }
+	}
 
 }
 
