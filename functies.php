@@ -19,12 +19,11 @@ function urbandictionary($word){
 	return $definitionArray->item(0)->nodeValue;
 }
 
-function markov($dir = 'assets/markov') {
-	$files = glob($dir . '/*.*');
-	$file = array_rand($files);
-	$messageid = $files[$file];
-	$chatid = file_get_contents($files[$file]);
-	return array($chatid,$messageid);
+function markov() {
+	$files = glob('assets/markov/*');
+	$message = $files[array_rand($files)];
+	$chat = file_get_contents($message);
+	return array($chat,substr($message,14));
 }
 
 function kopieerpasta($dir = 'assets/kopieerpasta') {
