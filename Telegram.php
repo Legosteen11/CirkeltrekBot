@@ -26,6 +26,10 @@ class Telegram {
         return $this->endpoint("getMe", array(), false);
     }
 
+    public function answerInlineQuery(array $content) {
+        return $this->endpoint("answerInlineQuery", $content);
+    }
+
     public function sendMessage(array $content) {
         return $this->endpoint("sendMessage", $content);
     }
@@ -108,6 +112,12 @@ class Telegram {
     
     public function setData(array $data) {
         $this->data = $data;
+    }
+    public function QueryText() {
+        return $this->data["inline_query"]["query"];
+    }
+    public function QueryID() {
+        return $this->data["inline_query"]["id"];
     }
     public function Text() {
         return $this->data["message"] ["text"];
