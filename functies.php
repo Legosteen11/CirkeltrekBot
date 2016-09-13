@@ -7,17 +7,17 @@ $chat_id = $telegram->ChatID();
 
 
 function urbandictionary($word){
-	/* format word */
-	$word = str_replace(' ','-',$word);
-	/* load the page DOM */
-	$dom = new DomDocument;
-	$dom->loadHTML(file_get_contents('http://urbandictionary.com/define.php?term=' . $word));
-	/* find all elements with "definition" class in the DOM using XPath */
-	$finder = new DomXPath($dom);
-	$className = 'meaning';
-	$definitionArray = $finder->query("//*[contains(@class, '$className')]");
-	/* return the first definition */
-	return $definitionArray->item(0)->nodeValue;
+    /* format word */
+    $word = str_replace(' ','-',$word);
+    /* load the page DOM */
+    $dom = new DomDocument;
+    $dom->loadHTML(file_get_contents('http://urbandictionary.com/define.php?term=' . $word));
+    /* find all elements with "definition" class in the DOM using XPath */
+    $finder = new DomXPath($dom);
+    $className = 'meaning';
+    $definitionArray = $finder->query("//*[contains(@class, '$className')]");
+    /* return the first definition */
+    return $definitionArray->item(0)->nodeValue;
 }
 
 function kopieerpasta($dir = 'assets/kopieerpasta') {
@@ -64,10 +64,10 @@ function oorporno() {
 }
 
 function contains($str, array $arr) {
-	foreach($arr as $a) {
-		if (stripos($str,$a) !== false) return true;
-	}
-	return false;
+    foreach($arr as $a) {
+        if (stripos($str,$a) !== false) return true;
+    }
+    return false;
 }
 
 function reverse ($string, $encoding = null) {
@@ -85,52 +85,53 @@ function reverse ($string, $encoding = null) {
 }
 
 function draai($text){
-	$tekst = strtolower(reverse($text));
-	$text = strtolower($text);
-	$chars = Array(
-		'a' => 'ɐ',
-		'b' => 'q',
-		'c' => 'ɔ',
-		'd' => 'p',
-		'e' => 'ǝ',
-		'f' => 'ɟ',
-		'g' => 'ƃ',
-		'h' => 'ɥ',
-		'i' => 'ı',
-		'j' => 'ɾ',
-		'k' => 'ʞ',
-		'l' => 'l',
-		'm' => 'ɯ',
-		'n' => 'u',
-		'o' => 'o',
-		'p' => 'd',
-		'q' => 'b',
-		'r' => 'ɹ',
-		's' => 's',
-		't' => 'ʇ',
-		'u' => 'n',
-		'v' => 'ʌ',
-		'w' => 'ʍ',
-		'x' => 'x',
-		'y' => 'ʎ',
-		'z' => 'z',
-		'.' => '˙',
-		',' => "'",
-		"'" => ',',
-		'?' => '¿',
-		'!' => '¡',
-	);
-	if ($text == null) {
-		return 'Ik het niet kunnen 😭😭😭';
-	} else {
-		$arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z', 'l', "'");
-		$gefilterd = str_replace($arr,'',$text);
-		if (!contains($gefilterd, $chars)) {
-			return strtr($tekst,$chars);
-		} else {
-			return reverse(strtr($text,array_flip($chars)));
-		}
-	}
+    $tekst = strtolower(reverse($text));
+    $text = strtolower($text);
+    $chars = Array(
+        'a' => 'ɐ',
+        'b' => 'q',
+        'c' => 'ɔ',
+        'd' => 'p',
+        'e' => 'ǝ',
+        'f' => 'ɟ',
+        'g' => 'ƃ',
+        'h' => 'ɥ',
+        'i' => 'ı',
+        'j' => 'ɾ',
+        'k' => 'ʞ',
+        'l' => 'l',
+        'm' => 'ɯ',
+        'n' => 'u',
+        'o' => 'o',
+        'p' => 'd',
+        'q' => 'b',
+        'r' => 'ɹ',
+        's' => 's',
+        't' => 'ʇ',
+        'u' => 'n',
+        'v' => 'ʌ',
+        'w' => 'ʍ',
+        'x' => 'x',
+        'y' => 'ʎ',
+        'z' => 'z',
+        '.' => '˙',
+        ',' => "'",
+        "'" => ',',
+        '?' => '¿',
+        '!' => '¡',
+    );
+	
+    if ($text == null) {
+        return 'Ik het niet kunnen 😭😭😭';
+    } else {
+        $arr = Array('b', 'd', 'q', 'p', 'o', 's', 'x', 'u', 'n', 'z', 'l', "'");
+        $gefilterd = str_replace($arr,'',$text);
+        if (!contains($gefilterd, $chars)) {
+            return strtr($tekst,$chars);
+        } else {
+            return reverse(strtr($text,array_flip($chars)));
+        }
+    }
 }
 
 function papgrap() {
@@ -172,7 +173,7 @@ function meem() {
         );
         array_push($feed, $item);
     }
-    
+
     $rand = rand(0,24); 
     for ($x=0;$x<1;$x++) {
         $title = $feed[$rand]['title'];
