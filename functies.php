@@ -57,6 +57,7 @@ function contains($str, array $arr) {
 
 function draai($text){
 	$tekst = strtolower(strrev($text));
+	$text = strtolower($text);
 	$chars = Array(
 		'a' => 'ɐ',
 		'b' => 'q',
