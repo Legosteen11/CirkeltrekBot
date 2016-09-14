@@ -4,6 +4,8 @@ $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
 
+include('telegram.php');
+
 function urbandictionary($word){
 	$word = str_replace(' ','-',$word);
 	$dom = new DomDocument;

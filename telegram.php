@@ -7,7 +7,7 @@ class Telegram {
 	public function getToken() {
 		$bot_id = file_get_contents('./ignore/token');
 	}
-	
+
 	public function __construct($bot_id) {
 		$this->bot_id = $bot_id;
 		$this->data = $this->getData();
@@ -78,7 +78,7 @@ class Telegram {
 		$content = array('file_id' => $file_id);
 		return $this->endpoint("getFile", $content);
 	}
-	
+
 	public function downloadFile($telegram_file_path, $local_file_path) {
 		$file_url = "https://api.telegram.org/file/bot" . $this->bot_id . "/" . $telegram_file_path;
 		$in = fopen($file_url, "rb");
@@ -109,7 +109,7 @@ class Telegram {
 			print_r($this->data);
 		}
 	}
-	
+
 	public function setData(array $data) {
 		$this->data = $data;
 	}
@@ -216,7 +216,7 @@ class Telegram {
 		}
 		return false;
 	}
-	
+
 	public function personName() {
 		if (isset($this->data["message"]["new_chat_participant"]["first_name"]) == true) {
 			return $this->data["message"]["new_chat_participant"]["first_name"];

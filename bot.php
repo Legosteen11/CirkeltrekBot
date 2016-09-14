@@ -1,5 +1,4 @@
 <?php
-include("Telegram.php");
 include("functies.php");
 
 if ($text == "/test") {
