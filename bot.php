@@ -6,7 +6,7 @@ if ($text == "/test") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Doet t'));
 }
 
-//stop en start 
+//stop en start
 else if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	if (file_exists(stop)) {
 	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
@@ -472,7 +472,7 @@ else if (strlen(strstr($text,"/excuses"))>0) {
 
 //siebe
 else if (strlen(strstr($text,"/siebe"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/siebe.jpg")));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('./assets/kopieerpasta/siebe.txt')));
 }
 
 //luchtvochtigheid
@@ -549,9 +549,9 @@ else if (strlen(strstr($text,"/markovs"))>0) {
     $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov("chatid"), 'message_id' => markov("messageid")));
 }
 
-else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() == "Maartenwut") {
+else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "DeCirkeltrekBot") {
 	file_put_contents('./assets/markov/' . $telegram->MessageID(),$chat_id);
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Heb ik ff opgeslagen.', 'reply_to_message_id' => $telegram->MessageID()));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 else if ($telegram->person() != false) {
