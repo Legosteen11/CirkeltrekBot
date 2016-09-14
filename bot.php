@@ -1,5 +1,6 @@
 <?php
 include("Telegram.php");
+include("functies.php");
 
 $bot_id = file_get_contents('./ignore/token');
 $telegram = new Telegram($bot_id);
