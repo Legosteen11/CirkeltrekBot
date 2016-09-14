@@ -547,12 +547,12 @@ else if (strlen(strstr($text,"/ud"))>0) {
 
 //dorstig
 else if ($text == "/dorstig") {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . $telegram->FirstName() . 'is dorstig'));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . $telegram->FirstName() . ' is dorstig'));
 }
 
 //dorstig met persoon
 else if (strlen(strstr($text,"/dorstig"))>0 && $text != "/dorstig") {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . substr($text,9) . 'is dorstig'));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . substr($text,9) . ' is dorstig'));
 }
 
 //markovs
