@@ -1,12 +1,13 @@
 <?php
-include("functies.php");
+include("Telegram.php");
 
-if ($text == "/test") {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Doet t'));
-}
+$bot_id = file_get_contents('./ignore/token');
+$telegram = new Telegram($bot_id);
+$text = mb_strtolower($telegram->Text());
+$chat_id = $telegram->ChatID();
 
 //stop en start
-else if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
+if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	if (file_exists(stop)) {
 	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
