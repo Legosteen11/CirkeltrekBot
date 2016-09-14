@@ -7,7 +7,7 @@ if ($text == "/test") {
 }
 
 //stop en start
-else if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
+else if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	if (file_exists(stop)) {
 	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
@@ -16,7 +16,7 @@ else if ($text == "/decirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	  fclose($ourFileHandle);
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek uit"));
 	}
-} else if ($text == "/decirkeltrekbot" && $telegram->Username() != "Maartenwut") {
+} else if ($text == "/cirkeltrekbot" && $telegram->Username() != "Maartenwut") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
@@ -549,7 +549,7 @@ else if (strlen(strstr($text,"/markovs"))>0) {
     $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov("chatid"), 'message_id' => markov("messageid")));
 }
 
-else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "DeCirkeltrekBot") {
+else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "CirkeltrekBot") {
 	file_put_contents('./assets/markov/' . $telegram->MessageID(),$chat_id);
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
 }
