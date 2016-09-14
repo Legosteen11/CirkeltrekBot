@@ -545,10 +545,22 @@ else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
+//dorstig
+else if ($text == "/dorstig") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . $telegram->FirstName() . 'is dorstig'));
+}
+
+//dorstig met persoon
+else if (strlen(strstr($text,"/dorstig"))>0 && $text != "/dorstig") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . substr($text,9) . 'is dorstig'));
+}
+
+//markovs
 else if (strlen(strstr($text,"/markovs"))>0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => markov()));
 }
 
+//sla markov op
 else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "CirkeltrekBot") {
 	file_put_contents('./assets/markov/' . $telegram->MessageID(),$text);
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
