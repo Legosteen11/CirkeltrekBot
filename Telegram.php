@@ -218,10 +218,10 @@ class Telegram {
 	}
 	
 	public function personName() {
-		if (isset($this->data["message"]["new_chat_participant"]["first_name"]) == true) {
-			return $this->data["message"]["new_chat_participant"]["first_name"];
-		} else if (isset($this->data["message"]["left_chat_participant"]["first_name"]) == true) {
-			return $this->data["message"]["left_chat_participant"]["first_name"];
+		if (isset($this->data["message"]["new_chat_participant"]["username"]) == true) {
+			return '@' . $this->data["message"]["new_chat_participant"]["username"];
+		} else if (isset($this->data["message"]["left_chat_participant"]["username"]) == true) {
+			return '@' . $this->data["message"]["left_chat_participant"]["username"];
 		}
 		return null;
 	}
@@ -290,11 +290,7 @@ function markov($kok) {
 	$files = glob('assets/markov/*');
 	$message = $files[array_rand($files)];
 	$chat = file_get_contents($message);
-	if ($kok == 'chatid') {
-		return $chat;
-	} else if ($kok == 'messageid') {
-		return substr($message,14);
-	}
+	return $chat;
 }
 
 function kopieerpasta($dir = 'assets/kopieerpasta') {

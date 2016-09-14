@@ -26,11 +26,11 @@ else if (strlen(strstr($text,"http"))>0) {
 }
 
 //dit
-else if ($text == "dit" && $telegram->ReplyID() && !file_exists(stop)) {
+else if ($text == "dit" && $telegram->ReplyID() && rand(0,99) < 50) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->ReplyID()));
 }
 //kek
-else if ($text == "kek" && !file_exists(stop)) {
+else if ($text == "kek" && $telegram->ForwardFrom() != "Markov_Bot") {
 	if (rand(0,999) < 69) {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Keʞ", 'reply_to_message_id' => $telegram->MessageID()));
 	} else {
@@ -546,17 +546,22 @@ else if (strlen(strstr($text,"/ud"))>0) {
 }
 
 else if (strlen(strstr($text,"/markovs"))>0) {
-    $telegram->forwardMessage(array('chat_id' => $chat_id, 'from_chat_id' => markov("chatid"), 'message_id' => markov("messageid")));
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => markov()));
 }
 
 else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "CirkeltrekBot") {
-	file_put_contents('./assets/markov/' . $telegram->MessageID(),$chat_id);
+	file_put_contents('./assets/markov/' . $telegram->MessageID(),$text);
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 else if ($telegram->person() != false) {
 	if ($telegram->person() == 'new') {
-		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
+		if ($telegram->personName() != "@CirkeltrekBot") {
+			$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
+		} else {
+			$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Halloooootjes'));
+		}
+		
 	} else if ($telegram->person() == 'left') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
 	}
