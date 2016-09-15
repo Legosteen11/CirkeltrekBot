@@ -567,6 +567,11 @@ else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "C
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
 }
 
+//giegantisch
+else if (strlen(strstr($text,"/giegantisch"))>0) {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD2QADof3KCEKUkmy1su6mAg' ));
+}
+
 else if ($telegram->update() != false) {
 	if ($telegram->update() == 'new') {
 		if ($telegram->personName() != "@CirkeltrekBot") {
