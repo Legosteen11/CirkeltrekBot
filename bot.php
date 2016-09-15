@@ -537,13 +537,8 @@ else if (strlen(strstr($text,"/levededevs"))>0) {
 }
 
 //benikrechts
-else if (strlen(strstr($text,"benikrechts"))>0) {
+else if (strlen(strstr($text,"benikrechts"))>0 || strlen(strstr($text,"bennikrechts"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je bent helemaal rechts \xE2\x9C\x94 \xE2\x9C\x94", 'reply_to_message_id' => $telegram->MessageID()));
-}
-
-//bennikrechts
-else if (strlen(strstr($text,"bennikrechts"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je bennt helemaal rechts \xE2\x9C\x94 \xE2\x9C\x94", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 //ud
@@ -572,20 +567,25 @@ else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "C
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-else if ($telegram->person() != false) {
-	if ($telegram->person() == 'new') {
+else if ($telegram->update() != false) {
+	if ($telegram->update() == 'new') {
 		if ($telegram->personName() != "@CirkeltrekBot") {
 			$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Sterf, '.$telegram->personName().'!'));
 		} else {
 			$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Halloooootjes'));
 		}
 		
-	} else if ($telegram->person() == 'left') {
+	} else if ($telegram->update() == 'left') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
 	}
-}
 
-else if ($telegram->newphoto()) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha vet lelijke foto man doe weg'));
+	else if ($telegram->update() == "photo") {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha nee', 'reply_to_message_id' => $telegram->MessageID()));
+	}
+
+	else if ($telegram->update() == "title") {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'nee'));
+	}
+
 }
 ?>
