@@ -201,20 +201,23 @@ class Telegram {
 		return true;
 	}
 
-	public function person() {
+	public function status() {
 		if (isset($this->data["message"]["new_chat_participant"]["first_name"]) == true) {
 			return 'new';
 		} else if (isset($this->data["message"]["left_chat_participant"]["first_name"]) == true) {
 			return 'left';
+		} else if (isset($this->data["message"]["new_chat_photo"]) == true) {
+			return 'photo';
+		} else if (isset($this->data["message"]["new_chat_title"]) == true) {
+			return 'title';
+		} else if (isset($this->data["message"]["new_chat_title"]) == true) {
+			return 'pinned';
 		}
 		return false;
 	}
 
-	public function newphoto() {
-		if (isset($this->data["message"]["new_chat_photo"]) == true) {
-			return true;
-		}
-		return false;
+	public function pinnedmessageID() {
+		return $this->data["message"]["pinned_message"]["id"];
 	}
 	
 	public function personName() {
