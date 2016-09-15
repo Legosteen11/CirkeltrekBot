@@ -244,6 +244,6 @@ function ik_ihe() {
 //golfgrap
 function golfgrap(){
  $grap = file("assets/golfgrappen.txt");
- return $grap[mt_rand(0, count($grap))];
+ return array_rand($grap);
 }
 ?>
