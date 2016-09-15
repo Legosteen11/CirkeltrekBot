@@ -24,8 +24,6 @@ if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 //failsafes
 else if (strlen(strstr($text,"http"))>0) {
 	die();
-} else if (file_exists(stop)) {
-	die();
 }
 
 //dit
@@ -529,7 +527,7 @@ else if ($text == "/draai" && $telegram->ReplyID()) {
 }
 
 //draai
-else if (substr($text,0,6) == "/draai") {
+else if (strlen(strstr($text,"/draai"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => draai(substr($text,6))));
 }
 
@@ -595,6 +593,6 @@ else if ($telegram->update() != false) {
 
 //golfgrap
 else if (strlen(strstr($text,"/golfgrap"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => golfgrap()));
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "\"Ballen\""));
 }
 ?>
