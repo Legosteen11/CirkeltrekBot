@@ -590,4 +590,9 @@ else if ($telegram->update() != false) {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Nee ik wil dit niet in mn scherm schijtluis', 'reply_to_message_id' => $telegram->MessageID()));
 	}
 }
+
+//golfgrap
+else if (strlen(strstr($text,"/golfgrap"))>0) {
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => golfgrap()));
+}
 ?>
