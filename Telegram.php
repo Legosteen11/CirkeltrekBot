@@ -210,7 +210,7 @@ class Telegram {
 			return 'photo';
 		} else if (isset($this->data["message"]["new_chat_title"]) == true) {
 			return 'title';
-		} else if (isset($this->data["message"]["new_chat_title"]) == true) {
+		} else if (isset($this->data["message"]["pinned_message"]) == true) {
 			return 'pinned';
 		}
 		return false;
