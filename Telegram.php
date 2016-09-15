@@ -26,10 +26,6 @@ class Telegram {
 		return $this->endpoint("getMe", array(), false);
 	}
 
-	public function answerInlineQuery(array $content) {
-		return $this->endpoint("answerInlineQuery", $content);
-	}
-
 	public function sendMessage(array $content) {
 		return $this->endpoint("sendMessage", $content);
 	}
@@ -66,31 +62,6 @@ class Telegram {
 		return $this->endpoint("sendLocation", $content);
 	}
 
-	public function sendChatAction(array $content) {
-		return $this->endpoint("sendChatAction", $content);
-	}
-
-	public function getUserProfilePhotos(array $content) {
-		return $this->endpoint("getUserProfilePhotos", $content);
-	}
-
-	public function getFile($file_id) {
-		$content = array('file_id' => $file_id);
-		return $this->endpoint("getFile", $content);
-	}
-	
-	public function downloadFile($telegram_file_path, $local_file_path) {
-		$file_url = "https://api.telegram.org/file/bot" . $this->bot_id . "/" . $telegram_file_path;
-		$in = fopen($file_url, "rb");
-		$out = fopen($local_file_path, "wb");
-
-		while ($chunk = fread($in, 8192)) {
-			fwrite($out, $chunk, 8192);
-		}
-		fclose($in);
-		fclose($out);
-	}
-
 	public function setWebhook($url, $certificate = "") {
 		if ($certificate == "") {
 			$content = array('url' => $url);
@@ -112,12 +83,6 @@ class Telegram {
 	
 	public function setData(array $data) {
 		$this->data = $data;
-	}
-	public function QueryText() {
-		return $this->data["inline_query"]["query"];
-	}
-	public function QueryID() {
-		return $this->data["inline_query"]["id"];
 	}
 	public function Text() {
 		return $this->data["message"] ["text"];
@@ -145,25 +110,6 @@ class Telegram {
 			return $this->data["message"]["reply_to_message"]["text"];
 		}
 		return null;
-	}
-
-	public function Callback_Query() {
-		return $this->data["callback_query"];
-	}
-
-	public function Callback_ID() {
-		return $this->data["callback_query"]["id"];
-	}
-
-	public function Callback_Data() {
-		return $this->data["callback_query"]["data"];
-	}
-
-	public function Callback_Message() {
-		return $this->data["callback_query"]["message"];
-	}
-
-	public function Callback_ChatID() {
 	}
 
 	public function Date() {
@@ -272,17 +218,6 @@ class Telegram {
 		$result = curl_exec($ch);
 		curl_close($ch);
 		return $result;
-	}
-
-}
-
-// Helper for Uploading file using CURL
-if (!function_exists('curl_file_create')) {
-
-	function curl_file_create($filename, $mimetype = '', $postname = '') {
-		return "@$filename;filename="
-				. ($postname ? : basename($filename))
-				. ($mimetype ? ";type=$mimetype" : '');
 	}
 
 }
