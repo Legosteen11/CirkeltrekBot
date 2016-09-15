@@ -201,10 +201,10 @@ class Telegram {
 		return true;
 	}
 
-	public function status() {
-		if (isset($this->data["message"]["new_chat_participant"]["first_name"]) == true) {
+	public function update() {
+		if (isset($this->data["message"]["new_chat_participant"]) == true) {
 			return 'new';
-		} else if (isset($this->data["message"]["left_chat_participant"]["first_name"]) == true) {
+		} else if (isset($this->data["message"]["left_chat_participant"]) == true) {
 			return 'left';
 		} else if (isset($this->data["message"]["new_chat_photo"]) == true) {
 			return 'photo';
@@ -219,7 +219,7 @@ class Telegram {
 	public function pinnedmessageID() {
 		return $this->data["message"]["pinned_message"]["id"];
 	}
-	
+
 	public function personName() {
 		if (isset($this->data["message"]["new_chat_participant"]["username"]) == true) {
 			if ($this->data["message"]["new_chat_participant"]["username"] == "") {

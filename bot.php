@@ -574,18 +574,15 @@ else if ($telegram->update() != false) {
 		} else {
 			$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Halloooootjes'));
 		}
-		
+
 	} else if ($telegram->update() == 'left') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
-	}
-
-	else if ($telegram->update() == "photo") {
+	} else if ($telegram->update() == 'photo') {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha vet stomme foto man doe weg', 'reply_to_message_id' => $telegram->MessageID()));
+	} else if ($telegram->update() == 'title') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha nee', 'reply_to_message_id' => $telegram->MessageID()));
+	} else if ($telegram->update() == 'pinned') {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Nee ik wil dit niet in mn scherm schijtluis', 'reply_to_message_id' => $telegram->MessageID()));
 	}
-
-	else if ($telegram->update() == "title") {
-		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'nee'));
-	}
-
 }
 ?>
