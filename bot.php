@@ -595,6 +595,6 @@ else if ($telegram->update() != false) {
 
 //golfgrap
 else if (strlen(strstr($text,"/golfgrap"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "\"Ballen\""));
+    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => golfgrap()));
 }
 ?>
