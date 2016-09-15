@@ -541,6 +541,11 @@ else if (strlen(strstr($text,"benikrechts"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je bent helemaal rechts \xE2\x9C\x94 \xE2\x9C\x94", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
+//bennikrechts
+else if (strlen(strstr($text,"bennikrechts"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je bennt helemaal rechts \xE2\x9C\x94 \xE2\x9C\x94", 'reply_to_message_id' => $telegram->MessageID()));
+}
+
 //ud
 else if (strlen(strstr($text,"/ud"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => urbandictionary(substr($text,4)), 'reply_to_message_id' => $telegram->MessageID()));
