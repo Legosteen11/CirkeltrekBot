@@ -9,29 +9,29 @@ function urbandictionary($word){
 	return $definitionArray->item(0)->nodeValue;
 }
 
-function markov($kok) {
+function markov() {
 	$files = glob('assets/markov/*');
 	$message = $files[array_rand($files)];
 	$chat = file_get_contents($message);
 	return $chat;
 }
 
-function kopieerpasta($dir = 'assets/kopieerpasta') {
-	$files = glob($dir . '/*.*');
+function kopieerpasta() {
+	$files = glob('assets/kopieerpasta/*.*');
 	$file = array_rand($files);
 	$kopieerpasta = file_get_contents($files[$file]);
 	return $kopieerpasta;
 }
 
-function nsb($dir = 'assets/nsb') {
-	$files = glob($dir . '/*.*');
+function nsb() {
+	$files = glob('assets/nsb/*.*');
 	$file = array_rand($files);
 	$nsb = new CURLFile($files[$file]);
 	return $nsb;
 }
 
-function rms($dir = 'assets/rms') {
-	$files = glob($dir . '/*.*');
+function rms() {
+	$files = glob('assets/rms/*.*');
 	$file = array_rand($files);
 	$rms = new CURLFile($files[$file]);
 	return $rms;
