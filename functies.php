@@ -240,4 +240,10 @@ function ik_ihe() {
 	}
 	return $result;
 }
+
+//golfgrap
+function golfgrap(){
+ $grap = file("assets/golfgrappen.txt");
+ return $grap[mt_rand(0, count($grap))];
+}
 ?>
