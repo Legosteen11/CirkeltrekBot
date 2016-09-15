@@ -552,7 +552,7 @@ else if ($text == "/dorstig") {
 }
 
 //dorstig met persoon
-else if (strlen(strstr($text,"/dorstig"))>0 && $text != "/dorstig") {
+else if (strlen(strstr($text,"/dorstig"))>0 && $text != "/dorstig" && substr($text,0,8) == "/dorstig") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'niet intrappen, ' . substr($text,9) . ' is dorstig'));
 }
 
