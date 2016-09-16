@@ -208,7 +208,7 @@ function feesboek() {
   $regex = '/https?\:\/\/[^\" ]+/i';
   preg_match_all($regex, $link, $matches);
 	
-		$result .= $matches[0][1];
+		$result .= html_entity_decode($matches[0][1]);
 	}
 	return $result;
 }
@@ -236,7 +236,7 @@ function ik_ihe() {
 	$regex = '/https?\:\/\/[^\" ]+/i';
 	preg_match_all($regex, $link, $matches);
 	
-		$result .= $matches[0][1];
+		$result .= html_entity_decode($matches[0][1]);
 	}
 	return $result;
 }
