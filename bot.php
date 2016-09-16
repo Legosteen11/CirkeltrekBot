@@ -582,7 +582,7 @@ else if ($telegram->update() != false) {
 			$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Halloooootjes'));
 		}
 
-	} else if ($telegram->update() == 'left') {
+	} else if ($telegram->update() == 'left' && $telegram->personName()) {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $telegram->personName().' was gehalt!'));
 	} else if ($telegram->update() == 'photo') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha vet stomme foto man doe weg', 'reply_to_message_id' => $telegram->MessageID()));
