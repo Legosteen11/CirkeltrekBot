@@ -499,7 +499,7 @@ else if (strlen(strstr($text,"/zeg"))>0 && $telegram->ReplyID() == null) {
 }
 
 //zeg op reply
-else if ($text == "/zeg" && $telegram->ReplyID()) {
+else if (strlen(strstr($text,"/zeg"))>0 && $telegram->ReplyID()) {
 	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText(), 'nl-nl'), 'reply_to_message_id' => $telegram->ReplyID()));
 }
 
@@ -509,7 +509,7 @@ else if (strlen(strstr($text,"/say"))>0 && $telegram->ReplyID() == null) {
 }
 
 //say op reply
-else if ($text == "/say" && $telegram->ReplyID()) {
+else if (strlen(strstr($text,"/say"))>0 && $telegram->ReplyID()) {
 	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText(), 'en-gb'), 'reply_to_message_id' => $telegram->ReplyID()));
 }
 
@@ -519,7 +519,7 @@ else if (strlen(strstr($text,"/sieg"))>0 && $telegram->ReplyID() == null) {
 }
 
 //sieg op reply
-else if ($text == "/sieg" && $telegram->ReplyID()) {
+else if (strlen(strstr($text,"/sieg"))>0 && $telegram->ReplyID()) {
 	$telegram->sendVoice(array('chat_id' => $chat_id, 'voice' => zeg($telegram->ReplyText(), 'de-de'), 'reply_to_message_id' => $telegram->ReplyID()));
 }
 
