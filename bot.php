@@ -68,7 +68,7 @@ else if (strlen(strstr($text,"/lachen"))>0) {
 }
 
 //kek
-else if (strlen(strstr($text,"/kek"))>0) {
+else if (strlen(strstr($text,"/kek"))>0 && strlen(strstr($text,"/kekkruis")) == 0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADOQADkzoFAAFw9gW6EJBQIQI' ));
 }
 
@@ -484,7 +484,7 @@ else if (strlen(strstr($text,"/rms"))>0) {
 }
 
 //meem
-else if (strlen(strstr($text,"/meem"))>0) {
+else if (strlen(strstr($text,"/meem"))>0 && strlen(strstr($text,"/meemkruis")) == 0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => meem()));
 }
 
