@@ -47,8 +47,8 @@ else if (strlen(strstr($text," koning"))>0 && strlen(strstr($text," de "))>0 && 
 }
 
 //riv of rip
-else if ($text == "riv" || $text == "/riv") {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/riv.jpg")));
+else if ($text == "riv" || $text == "rip") {
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADPQEAApILuAAB8IRXD7cI3MMC' ));
 }
 
 //levedekoning
@@ -59,7 +59,7 @@ else if (strlen(strstr($text,"/levedekoning"))>0) {
 
 //willempie
 else if (strlen(strstr($text,"/willempie"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/willem.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADTQEAApILuAAC8GEL27fMWwI' ));
 }
 
 //lachen
@@ -84,12 +84,12 @@ else if (strlen(strstr($text,"/netjes"))>0) {
 
 //wat
 else if (strlen(strstr($text,"/wat"))>0 && strlen(strstr($text,"/watzeije")) == 0 && strlen(strstr($text,"watch")) == 0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/wat.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADSQEAApILuAABwnEpiZo6ajsC' ));
 }
 
 //patat
 else if (strlen(strstr($text,"/patat"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/patat.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADNQEAApILuAAByfdQ4Dy89_IC' ));
 }
 
 //waardeloos
@@ -114,7 +114,7 @@ else if (strlen(strstr($text,"/toppie"))>0) {
 
 //spanje
 else if (strlen(strstr($text,"/spanje"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/spanje.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADQgEAApILuAAB1EvKLHN4ChoC' ));
 }
 
 //willemsliefde
@@ -126,6 +126,7 @@ else if (strlen(strstr($text,"/willemsliefde"))>0 || strlen(strstr($text,"/konin
 else if (strlen(strstr($text,"/koningslied"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'https://www.youtube.com/watch?v=MEUKyKb4g6k'));
 }
+
 //waarisdekoning
 else if (strlen(strstr($text, "/waarisdekoning"))>0) {
 	$telegram->sendLocation(array('chat_id' => $chat_id, 'latitude' => '52.080810', 'longitude' => '4.306228'));
@@ -259,17 +260,17 @@ else if (strlen(strstr($text,"/helemaalmooi"))>0) {
 
 //kut
 else if (strlen(strstr($text,"/kut"))>0 && strlen(strstr($text,"/kutzooi")) == 0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/kut.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADJQEAApILuAABAavWOda4LPoC' ));
 }
 
 //kutzooi
 else if (strlen(strstr($text,"/kutzooi"))>0 && strlen(strstr($text,"/kut ")) == 0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/kutzooi.png")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADJwEAApILuAABJExCmSLmwGYC' ));
 }
 
 //randig
 else if (strlen(strstr($text,"/randig"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/randig.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADOwEAApILuAABYFHy0YzQzPMC' ));
 }
 
 //nederland
@@ -314,12 +315,12 @@ else if (strlen(strstr($text,"/veelspam"))>0) {
 
 //zoutig
 else if (strlen(strstr($text,"/zoutig"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/zoutig.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADUQEAApILuAABxbpwIOKTq9kC' ));
 }
 
 //meerjpeg
 else if (strlen(strstr($text,"/meerjpeg"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/meerjpeg.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADLQEAApILuAABO6a-kjk5_dwC' ));
 }
 
 //feesboek
@@ -329,7 +330,7 @@ else if (strlen(strstr($text,"/feesboek"))>0) {
 
 //opalberto
 else if (strlen(strstr($text,"/opalberto"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/opalberto.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADMwEAApILuAABQPRgsdBDizAC' ));
 }
 
 //ditlooptuitdehand
@@ -339,7 +340,7 @@ else if (strlen(strstr($text,"/ditlooptuitdehand"))>0) {
 
 //inderdaad
 else if (strlen(strstr($text,"/inderdaad"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/inderdaad.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADIQEAApILuAABK2_6adbECfkC' ));
 }
 
 //goedgemeemd
@@ -349,7 +350,7 @@ else if (strlen(strstr($text,"/goedgemeemd"))>0) {
 
 //lama
 else if (strlen(strstr($text,"/lama"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/lama.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADKwEAApILuAABVTvrqE0lvucC' ));
 }
 
 //blaashet
@@ -364,17 +365,17 @@ else if (strlen(strstr($text,"/heil"))>0) {
 
 //saai
 else if (strlen(strstr($text,"/saai"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/saai.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADQAEAApILuAABqmXP6qUYvWcC' ));
 }
 
 //klootviool
 else if (strlen(strstr($text,"/klootviool"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/klootviool.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADIwEAApILuAABF9rC2g_6xO0C' ));
 }
 
 //neetoch
 else if (strlen(strstr($text,"/neetoch"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/neetoch.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADMQEAApILuAABgQABNcX-RhK0Ag' ));
 }
 
 //lui
@@ -384,12 +385,12 @@ else if (strlen(strstr($text,"/lui"))>0) {
 
 //meh
 else if (strlen(strstr($text,"/meh"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/meh.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADLwEAApILuAABiRGzNaum6QgC' ));
 }
 
 //weersvoorspelling
 else if (strlen(strstr($text,"/weersvoorspelling"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/weersvoorspelling.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADSwEAApILuAABw8hKCg98NkIC' ));
 }
 
 //nsb
@@ -404,7 +405,7 @@ else if (strlen(strstr($text,"/eens"))>0) {
 
 //poephoofd
 else if (strlen(strstr($text,"/poephoofd"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/poephoofd.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADNwEAApILuAABK-jcBCNUUR4C' ));
 }
 
 //ditisprima
@@ -414,22 +415,22 @@ else if (strlen(strstr($text,"/ditisprima"))>0) {
 
 //poetsgebakken
 else if (strlen(strstr($text,"/poetsgebakken"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/poetsgebakken.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADOQEAApILuAAB90TPbOn7FA8C' ));
 }
 
 //vochtig
 else if (strlen(strstr($text,"/vochtig"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/vochtig.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADRwEAApILuAABit_8V6pLYckC' ));
 }
 
 //zalwel
 else if (strlen(strstr($text,"/zalwel"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/zalwel.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADTwEAApILuAABA80dYZ2G_B4C' ));
 }
 
 //topkek
 else if (strlen(strstr($text,"/topkek"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/topkek.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADRAEAApILuAABwWhyAAGuWQX5Ag' ));
 }
 
 //ikookbedankt
