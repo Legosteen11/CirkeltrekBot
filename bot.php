@@ -574,6 +574,11 @@ else if (strlen(strstr($text,"/giegantisch"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD2QADof3KCEKUkmy1su6mAg' ));
 }
 
+//facezoom
+else if (strlen(strstr($text,"/facezoom"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => oorporno()));
+}
+
 else if ($telegram->update() != false) {
 	if ($telegram->update() == 'new') {
 		if ($telegram->personName() != "@CirkeltrekBot") {
