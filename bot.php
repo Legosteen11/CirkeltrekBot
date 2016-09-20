@@ -169,7 +169,7 @@ else if (strlen(strstr($text,"/stadhouders"))>0) {
 }
 
 //broodrooster
-else if (strlen(strstr($text,"/stadhouders"))>0) {
+else if (strlen(strstr($text,"/broodrooster"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/broodrooster.txt')));
 }
 
