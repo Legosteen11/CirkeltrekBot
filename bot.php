@@ -275,7 +275,7 @@ else if (strlen(strstr($text,"/randig"))>0) {
 
 //nederland
 else if (strlen(strstr($text,"/nederland"))>0) {
-	$telegram->sendPhoto(array('chat_id' => $chat_id, 'photo' => new CURLFile("./assets/nederland.jpg")));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADVQEAApILuAABPw-oSCNIf5IC' ));
 }
 
 //angelsaksisch
