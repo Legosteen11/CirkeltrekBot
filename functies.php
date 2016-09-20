@@ -59,6 +59,15 @@ function oorporno() {
 	return $oorporno[$random];
 }
 
+function facezoom() {
+	$facezoom = array("BQADBAADWAEAApILuAABBAL3eYq9mAkC",
+					  "BQADBAADWgEAApILuAABlmNi7UfjPW8C",
+					  "BQADBAADXAEAApILuAABie0p0P1uAXYC");
+	$count = count($facezoom) - 1;
+	$random = rand(0, $count);
+	return $facezoom[$random];
+}
+
 function contains($str, array $arr) {
 	foreach($arr as $a) {
 		if (stripos($str,$a) !== false) return true;
