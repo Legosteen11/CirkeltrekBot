@@ -576,7 +576,7 @@ else if (strlen(strstr($text,"/giegantisch"))>0) {
 
 //facezoom
 else if (strlen(strstr($text,"/facezoom"))>0) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => facezoom()));
+	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => facezoom()));
 }
 
 else if ($telegram->update() != false) {
