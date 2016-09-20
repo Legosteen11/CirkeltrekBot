@@ -168,6 +168,11 @@ else if (strlen(strstr($text,"/stadhouders"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/stadhouders.txt')));
 }
 
+//broodrooster
+else if (strlen(strstr($text,"/stadhouders"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/broodrooster.txt')));
+}
+
 //oorporno
 else if (strlen(strstr($text,"/oorporno"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => oorporno()));
