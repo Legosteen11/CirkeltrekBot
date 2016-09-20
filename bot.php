@@ -565,7 +565,7 @@ else if (strlen(strstr($text,"/markovs"))>0) {
 
 //sla markov op
 else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "CirkeltrekBot") {
-	file_put_contents('./assets/markov/' . $telegram->MessageID(),$text);
+	file_put_contents('./ignore/markov/' . $telegram->MessageID(),$text);
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
 }
 
