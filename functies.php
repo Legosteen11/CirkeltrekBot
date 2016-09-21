@@ -189,7 +189,7 @@ function meem() {
   $regex = '/https?\:\/\/[^\" ]+/i';
   preg_match_all($regex, $link, $matches);
 	
-		$result .= $matches[0][1];
+		$result .= htmlspecialchars_decode($matches[0][1]);
 	}
 	return $result;
 }
