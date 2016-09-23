@@ -559,7 +559,7 @@ else if (strlen(strstr($text,"/dorstig"))>0 && $text != "/dorstig" && substr($te
 }
 
 //markovs
-else if (strlen(strstr($text,"/markovs"))>0) {
+else if (strlen(strstr($text,"/markovs"))>0 && strlen(strstr($text,"/markovski")) == 0) {
     $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => markov()));
 }
 
