@@ -594,7 +594,7 @@ else if ($telegram->update() != false) {
 	} else if ($telegram->update() == 'title') {
 		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Haha nee', 'reply_to_message_id' => $telegram->MessageID()));
 	} else if ($telegram->update() == 'pinned') {
-		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Nee ik wil dit niet in mn scherm schijtluis', 'reply_to_message_id' => $telegram->MessageID()));
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Pleur op', 'reply_to_message_id' => $telegram->MessageID()));
 	}
 }
 
