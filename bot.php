@@ -564,9 +564,14 @@ else if (strlen(strstr($text,"/markovs"))>0 && strlen(strstr($text,"/markovski")
 }
 
 //sla markov op
-else if ($telegram->ForwardFrom() == "Markov_Bot" && $telegram->Username() != "CirkeltrekBot") {
+else if ($telegram->ForwardFrom() == "Markov_Bot") {
 	file_put_contents('./ignore/markov/' . $telegram->MessageID(),$text);
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'Jo man. Hij staat bij /markovs nu.', 'reply_to_message_id' => $telegram->MessageID()));
+}
+
+//sla facezoom op
+else if ($telegram->ForwardFrom() == "FaceZoomBot") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => print_r($telegram->GetPhotoFileID()), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 //giegantisch

@@ -85,7 +85,13 @@ class Telegram {
 		$this->data = $data;
 	}
 	public function Text() {
-		return $this->data["message"] ["text"];
+		return $this->data["message"]["text"];
+	}
+	public function GetPhotoFileID() {
+		if (isset($this->data["message"]["photo"]["file_id"]) == true) {
+			return $this->data["message"]["photo"]["file_id"];
+		}
+		return null;
 	}
 	public function MessageID() {
 		return $this->data["message"]["message_id"];
