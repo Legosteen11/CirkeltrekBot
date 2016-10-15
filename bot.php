@@ -29,7 +29,7 @@ else if (strlen(strstr($text,"http"))>0) {
 }
 
 //dit
-else if ($text == "dit" && $telegram->ReplyID() && rand(0,99) < 50) {
+else if ($text == "dit" && $telegram->ReplyID()) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->ReplyID()));
 }
 //kek
