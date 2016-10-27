@@ -72,9 +72,19 @@ else if (strlen(strstr($text,"/kek"))>0 && strlen(strstr($text,"/kekkruis")) == 
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADOQADkzoFAAFw9gW6EJBQIQI' ));
 }
 
+//kekkruis
+else if (strlen(strstr($text,"/kekkruis"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => '<code>K   K E K' . PHP_EOL . 'E   E' . PHP_EOL . 'K E K E K' . PHP_EOL . '    E   E' . PHP_EOL . 'K E K   K</code>', 'parse_mode' => HTML));
+}
+
+//meemkruis
+else if (strlen(strstr($text,"/meemkruis"))>0) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => '<code>M     M E E M' . PHP_EOL . 'E     E' . PHP_EOL . 'E     E' . PHP_EOL . 'M E E M E E M' . PHP_EOL . '      E     E' . PHP_EOL . '      E     E' . PHP_EOL . 'M E E M     M</code>', 'parse_mode' => HTML));
+}
+
 //applaus
 else if (strlen(strstr($text,"/applaus"))>0) {
-	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAADVQADkzoFAAHl_TiVLZF85AI' ));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'BQADBAADVQADkzoFAAHl_TiVLZF85AI' ));
 }
 
 //netjes
