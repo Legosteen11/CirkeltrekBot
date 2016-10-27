@@ -173,13 +173,13 @@ class Telegram {
 	}
 
 	public function personName() {
-		if (isset($this->data["message"]["new_chat_participant"]["username"]) == true) {
+		if (isset($this->data["message"]["new_chat_participant"]) == true) {
 			if ($this->data["message"]["new_chat_participant"]["username"] == "") {
 				return $this->data["message"]["new_chat_participant"]["first_name"];
 			} else {
 				return '@' . $this->data["message"]["new_chat_participant"]["username"];
 			}
-		} else if (isset($this->data["message"]["left_chat_participant"]["username"]) == true) {
+		} else if (isset($this->data["message"]["left_chat_participant"]) == true) {
 			if ($this->data["message"]["left_chat_participant"]["username"] == "") {
 				return $this->data["message"]["left_chat_participant"]["first_name"];
 			} else {
