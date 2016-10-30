@@ -9,7 +9,7 @@ $chat_id = $telegram->ChatID();
 $admins = array("Maartenwut", "Flippylosaurus");
 
 //stop en start
-if ($text == "/cirkeltrekbot" && in_array($telegram->Username(), $admins) == true) {
+if (strlen(strstr($text,"/cirkeltrekbot"))>0 && in_array($telegram->Username(), $admins) == true) {
 	if (file_exists(stop)) {
 	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
@@ -35,6 +35,8 @@ if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
 else if (strlen(strstr($text,"http"))>0) {
 	die();
 } else if (file_exists(stop)) {
+	die();
+} else if (strlen(strstr($text,"s/"))>0) {
 	die();
 }
 
@@ -185,7 +187,7 @@ else if (strlen(strstr($text,"/meemsterkaas"))>0) {
 }
 
 //cirkeltrek
-else if (strlen(strstr($text,"/cirkeltrek"))>0 && substr( $text, 0, 1 ) == "/") {
+else if (strlen(strstr($text,"/cirkeltrek"))>0 && strlen(strstr($text,"/cirkeltrekbot")) == 0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => file_get_contents('assets/kopieerpasta/cirkeltrek.txt')));
 }
 
