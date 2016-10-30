@@ -1,12 +1,10 @@
 <?php
+include("ignore/token.php");
+$bot_id = $bot_id;
 class Telegram {
 
 	private $data = array();
 	private $updates = array();
-
-	public function getToken() {
-		include("ignore/token.php");
-	}
 	
 	public function __construct($bot_id) {
 		$this->bot_id = $bot_id;
