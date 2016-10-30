@@ -6,9 +6,10 @@ $bot_id = file_get_contents('./ignore/token');
 $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
 $chat_id = $telegram->ChatID();
+$admins = array("Maartenwut", "Flippylosaurus");
 
 //stop en start
-if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
+if ($text == "/cirkeltrekbot" && in_array($telegram->Username(), $admins) == true) {
 	if (file_exists(stop)) {
 	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
@@ -17,15 +18,15 @@ if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 	  fclose($ourFileHandle);
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek uit"));
 	}
-} else if ($text == "/cirkeltrekbot" && $telegram->Username() != "Maartenwut") {
+} else if ($text == "/cirkeltrekbot" && in_array($telegram->Username(), $admins) != true) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
 }
 //git pull
 //PROCEED WITH CAUTION!
-if ($text == "/gitpull" && $telegram->Username() == "Flippylosaurus") {
+if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
         $output = shell_exec('git pull');
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $output, 'reply_to_message_id' => $telegram->MessageID()));
-} else if ($text == "/cirkeltrekbot" && $telegram->Username() != "Flippylosaurus") {
+} else if ($text == "/cirkeltrekbot" && in_array($telegram->Username(), $admins) != true) {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
@@ -35,6 +36,15 @@ else if (strlen(strstr($text,"http"))>0) {
 	die();
 } else if (file_exists(stop)) {
 	die();
+}
+
+//permtest
+else if (strlen(strstr($text,"/permtest"))>0) {
+        if (in_array($telegram->Username(), $admins) == true) {
+                $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha ja", 'reply_to_message_id' => $telegram->MessageID()));
+        } else {
+                $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
+        }
 }
 
 //triggered
