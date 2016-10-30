@@ -1,7 +1,6 @@
 <?php
 include("Telegram.php");
 include("functies.php");
-include("ignore/token.php");
 
 $telegram = new Telegram($bot_id);
 $text = mb_strtolower($telegram->Text());
