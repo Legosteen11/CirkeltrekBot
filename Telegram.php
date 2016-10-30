@@ -6,6 +6,7 @@ class Telegram {
 	
 	public function getToken() {
 		require_once("ignore/token.php");
+		$bot_id = $bot_id;
  	}
 	
 	public function __construct($bot_id) {
