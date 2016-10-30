@@ -10,11 +10,11 @@ $admins = array("Maartenwut", "Flippylosaurus");
 
 //stop en start
 if (strlen(strstr($text,"/cirkeltrekbot"))>0 && in_array($telegram->Username(), $admins) == true) {
-	if (file_exists(stop)) {
-	  unlink(stop) or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
+	if (file_exists('stop')) {
+	  unlink('stop') or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek aan"));
 	} else {
-	  $ourFileHandle = fopen(stop, 'w') or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
+	  $ourFileHandle = fopen('stop', 'w') or $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Halp ik kan niet schrijven"));
 	  fclose($ourFileHandle);
 	  $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Kek uit"));
 	}
@@ -34,7 +34,7 @@ if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
 //failsafes
 else if (strlen(strstr($text,"http"))>0) {
 	die();
-} else if (file_exists(stop)) {
+} else if (file_exists('stop')) {
 	die();
 } else if (strlen(strstr($text,"s/"))>0) {
 	die();
