@@ -20,10 +20,8 @@ if ($text == "/cirkeltrekbot" && $telegram->Username() == "Maartenwut") {
 } else if ($text == "/cirkeltrekbot" && $telegram->Username() != "Maartenwut") {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
 }
-//git pull.
+//git pull
 //PROCEED WITH CAUTION!
-
-echo shell_exec('git pull');
 if ($text == "/gitpull" && $telegram->Username() == "Flippylosaurus") {
         $output = shell_exec('git pull');
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $output, 'reply_to_message_id' => $telegram->MessageID()));
