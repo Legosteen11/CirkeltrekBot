@@ -28,6 +28,13 @@ else if (strlen(strstr($text,"http"))>0) {
 	die();
 }
 
+//triggered
+else if (strlen(strstr($text,"triggered"))>0) {
+        $telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/h3h3triggered.gif")));
+}
+
+
+
 //dit
 else if ($text == "dit" && $telegram->ReplyID()) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Dat", 'reply_to_message_id' => $telegram->ReplyID()));
