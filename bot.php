@@ -25,7 +25,7 @@ if (strlen(strstr($text,"/cirkeltrekbot"))>0 && in_array($telegram->Username(), 
 //PROCEED WITH CAUTION!
 if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
         $output = shell_exec('git pull');
-        $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $output, 'reply_to_message_id' => $telegram->MessageID()));
+        $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Output: ".$output, 'reply_to_message_id' => $telegram->MessageID()));
 } else if ($text == "/cirkeltrekbot" && in_array($telegram->Username(), $admins) != true) {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
 }
