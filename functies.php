@@ -1,4 +1,6 @@
 <?php
+include("ignore/token.php");
+
 function urbandictionary($word){
 	$word = str_replace(' ','-',$word);
 	$dom = new DomDocument;
