@@ -57,7 +57,7 @@ else if (strlen(strstr($text,"triggered"))>0) {
 }
 
 //xd
-else if (substr($text, 0, 2)) == "xd") {
+else if (substr($text, 0, 2) == "xd") {
         $telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/xd.gif"), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
