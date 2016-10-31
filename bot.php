@@ -23,14 +23,14 @@ if (strlen(strstr($text,"/cirkeltrekbot"))>0 && in_array($telegram->Username(), 
 //git pull
 //PROCEED WITH CAUTION!
 if (strlen(strstr($text,"/gitpull"))>0 && in_array($telegram->Username(), $admins) == true) {
-        $output = shell_exec('git reset --hard HEAD && git pull origin master 2>&1');
+        $output = shell_exec('git reset --hard HEAD && git pull origin master && git reset --hard HEAD 2>&1');
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "<code>" . $output . "</code>", 'reply_to_message_id' => $telegram->MessageID(), 'parse_mode' => HTML));
 } else if (strlen(strstr($text,"/gitpull"))>0 && in_array($telegram->Username(), $admins) != true) {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee dat mag jij niet", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
 //gitgud
-else if (substr($text, 0, 2) == "/gitgud") {
+else if (strlen(strstr($text,"/gitgud"))>0) {
 	$output = shell_exec('git gud 2>&1');
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "<code>" . $output . "</code>", 'reply_to_message_id' => $telegram->MessageID(), 'parse_mode' => HTML));
 }
