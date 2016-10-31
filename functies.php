@@ -257,4 +257,15 @@ function golfgrap(){
 	$grap = file("assets/golfgrappen.txt");
 	return $grap[mt_rand(0, count($grap))];
 }
+
+//xkcd
+function xkcd($nummer = 0) {
+	if ($nummer = 0) {
+		$json = file_get_contents('http://xkcd.com/info.0.json');		
+	} else {
+		$json = file_get_contents('http://xkcd.com/' . $nummer . '/info.0.json');
+	}
+	$obj = json_decode($json);
+	return $obj->title . " (" . $obj->num . ")" . PHP_EOL . $obj->img;
+}
 ?>
