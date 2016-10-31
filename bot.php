@@ -651,4 +651,9 @@ else if (strlen(strstr($text,"/xkcd"))>0) {
 	$commando = explode(" ", substr($tekst, 6));
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => xkcd($commando[0]), 'parse_mode' => HTML));
 }
+
+//vaporwave
+else if (substr($text,0,10) == "/vaporwave") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => mb_convert_kana(substr($telegram->Text(),11), "RNASKHC")));
+} 
 ?>
