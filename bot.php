@@ -22,13 +22,20 @@ if (strlen(strstr($text,"/cirkeltrekbot"))>0 && in_array($telegram->Username(), 
 }
 //git pull
 //PROCEED WITH CAUTION!
-if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
+if (strlen(strstr($text,"/gitpull"))>0 && in_array($telegram->Username(), $admins) == true) {
         $output = shell_exec('git reset --hard HEAD && git pull origin master 2>&1');
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "<code>" . $output . "</code>", 'reply_to_message_id' => $telegram->MessageID(), 'parse_mode' => HTML));
-} else if ($text == "/gitpull" && in_array($telegram->Username(), $admins) != true) {
+} else if (strlen(strstr($text,"/gitpull"))>0 && in_array($telegram->Username(), $admins) != true) {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee dat mag jij niet", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
+//gitgud
+else if (substr($text, 0, 2) == "/gitgud") {
+	$output = shell_exec('git gud 2>&1');
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "<code>" . $output . "</code>", 'reply_to_message_id' => $telegram->MessageID(), 'parse_mode' => HTML));
+}
+
+//@cirkeltrekbot
 else if (strlen(strstr($text,"@cirkeltrekbot"))>0 && strlen(strstr($text,"/")) == 0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je riep mij?", 'reply_to_message_id' => $telegram->MessageID()));
 }
@@ -40,15 +47,6 @@ else if (strlen(strstr($text,"http"))>0) {
 	die();
 } else if (strlen(strstr($text,"s/"))>0) {
 	die();
-}
-
-//permtest
-else if (strlen(strstr($text,"/permtest"))>0) {
-        if (in_array($telegram->Username(), $admins) == true) {
-                $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha ja", 'reply_to_message_id' => $telegram->MessageID()));
-        } else {
-                $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee", 'reply_to_message_id' => $telegram->MessageID()));
-        }
 }
 
 //triggered
@@ -620,11 +618,6 @@ else if ($telegram->ForwardFrom() == "FaceZoomBot") {
 //giegantisch
 else if (strlen(strstr($text,"/giegantisch"))>0) {
 	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => 'BQADBAAD2QADof3KCEKUkmy1su6mAg' ));
-}
-
-//facezoom
-else if (strlen(strstr($text,"/facezoom"))>0) {
-	$telegram->sendSticker(array('chat_id' => $chat_id, 'sticker' => facezoom()));
 }
 
 else if ($telegram->update() != false) {
