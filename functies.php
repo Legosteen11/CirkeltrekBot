@@ -253,7 +253,7 @@ function golfgrap(){
 function xkcd($nummer) {
 	$json = file_get_contents('http://xkcd.com/' . $nummer . '/info.0.json');
 	$obj = json_decode($json);
-	$title = "<b>" . $obj->title . "</b> (" . $obj->num . ")";
-	return  $title . PHP_EOL . $obj->alt . PHP_EOL . $obj->img;
+	$title = "<b>" . htmlspecialchars($obj->title) . "</b> (" . $obj->num . ")";
+	return  $title . PHP_EOL . htmlspecialchars($obj->alt) . PHP_EOL . htmlspecialchars($obj->img);
 }
 ?>
