@@ -61,15 +61,6 @@ function oorporno() {
 	return $oorporno[$random];
 }
 
-function facezoom() {
-	$facezoom = array("BQADBAADWAEAApILuAABBAL3eYq9mAkC",
-					  "BQADBAADWgEAApILuAABlmNi7UfjPW8C",
-					  "BQADBAADXAEAApILuAABie0p0P1uAXYC");
-	$count = count($facezoom) - 1;
-	$random = rand(0, $count);
-	return $facezoom[$random];
-}
-
 function contains($str, array $arr) {
 	foreach($arr as $a) {
 		if (stripos($str,$a) !== false) return true;
@@ -262,6 +253,7 @@ function golfgrap(){
 function xkcd($nummer) {
 	$json = file_get_contents('http://xkcd.com/' . $nummer . '/info.0.json');
 	$obj = json_decode($json);
-	return $obj->title . "(" . $obj->num . ")" . PHP_EOL . $obj->img;
+	$title = "<b>" . $obj->title . "</b> (" . $obj->num . ")";
+	return  $title . PHP_EOL . $obj->alt . PHP_EOL . $obj->img;
 }
 ?>
