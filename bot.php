@@ -29,6 +29,9 @@ if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee dat mag jij niet", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
+else if (strlen(strstr($text,"@cirkeltrekbot"))>0 && substr($string, 0, 1) != "/") {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je riep mij?", 'reply_to_message_id' => $telegram->MessageID()));
+}
 
 //failsafes
 else if (strlen(strstr($text,"http"))>0) {
