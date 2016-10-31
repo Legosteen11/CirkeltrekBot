@@ -602,7 +602,7 @@ else if (strlen(strstr($text,"/dorstig"))>0 && $text != "/dorstig" && substr($te
 
 //markovs
 else if (strlen(strstr($text,"/markovs"))>0 && strlen(strstr($text,"/markovski")) == 0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => markov()));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => markov()));
 }
 
 //sla markov op
@@ -642,6 +642,13 @@ else if ($telegram->update() != false) {
 
 //golfgrap
 else if (strlen(strstr($text,"/golfgrap"))>0) {
-    $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => golfgrap()));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => golfgrap()));
+}
+
+//xkcd
+else if (strlen(strstr($text,"/xkcd"))>0) {
+	$tekst = str_replace('@cirkeltrekbot', "", $text);
+	$commando = explode(" ", substr($tekst, 6));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => xkcd($commando[0])));
 }
 ?>
