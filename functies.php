@@ -41,11 +41,11 @@ function rms() {
 }
 
 function zeg($tekst, $taal) {
-	mkdir('ignore/markov/');
+	mkdir('ignore/zeg/');
 	$woorden =  substr($tekst, 0, 200);
 	$words = urlencode($woorden);
 	$file  = md5($words);
-	$file = "ignore/audio/" . $file . ".mp3";
+	$file = "ignore/zeg/" . $file . ".mp3";
 	if (!file_exists($file)) {
 		$mp3 = file_get_contents('http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=' . $words . '&tl=' . $taal);
 		file_put_contents($file, $mp3);
