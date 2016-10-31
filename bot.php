@@ -53,10 +53,13 @@ else if (strlen(strstr($text,"/permtest"))>0) {
 
 //triggered
 else if (strlen(strstr($text,"triggered"))>0) {
-        $telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/h3h3triggered.gif")));
+        $telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/h3h3triggered.gif"), 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-
+//xd
+else if (strlen(strstr($text,"xd"))>0) {
+        $telegram->sendDocument(array('chat_id' => $chat_id, 'document' => new CURLFile("./assets/xd.gif"), 'reply_to_message_id' => $telegram->MessageID()));
+}
 
 //dit
 else if ($text == "dit" && $telegram->ReplyID()) {
