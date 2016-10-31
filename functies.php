@@ -259,12 +259,8 @@ function golfgrap(){
 }
 
 //xkcd
-function xkcd($nummer = 0) {
-	if ($nummer = 0) {
-		$json = file_get_contents('http://xkcd.com/info.0.json');		
-	} else {
-		$json = file_get_contents('http://xkcd.com/' . $nummer . '/info.0.json');
-	}
+function xkcd($nummer) {
+	$json = file_get_contents('http://xkcd.com/' . $nummer . '/info.0.json');
 	$obj = json_decode($json);
 	return $obj->title . " (" . $obj->num . ")" . PHP_EOL . $obj->img;
 }
