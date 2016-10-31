@@ -649,6 +649,6 @@ else if (strlen(strstr($text,"/golfgrap"))>0) {
 else if (strlen(strstr($text,"/xkcd"))>0) {
 	$tekst = str_replace('@cirkeltrekbot', "", $text);
 	$commando = explode(" ", substr($tekst, 6));
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => xkcd($commando[0])));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => xkcd($commando[0]), 'parse_mode' => HTML));
 }
 ?>
