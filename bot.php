@@ -29,7 +29,7 @@ if ($text == "/gitpull" && in_array($telegram->Username(), $admins) == true) {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "haha nee dat mag jij niet", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
-else if (strlen(strstr($text,"sss@cirkeltrekbot"))>0 && substr($text, 0, 1) != "/") {
+else if (strlen(strstr($text,"@cirkeltrekbot"))>0 && strlen(strstr($text,"/")) == 0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "Je riep mij?", 'reply_to_message_id' => $telegram->MessageID()));
 }
 
