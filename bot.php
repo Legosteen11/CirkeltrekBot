@@ -654,7 +654,13 @@ else if (strlen(strstr($text,"/xkcd"))>0) {
 
 //vaporwave
 else if (substr($text,0,10) == "/vaporwave") {
-	$fullwidth = mb_convert_kana(substr($telegram->Text(),11), "RNASKHC");
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => implode(' ',str_split($fullwidth))));
+	$tekst = str_replace('@CirkeltrekBot', '', $telegram->Text());
+
+	if ($tekst == null) {
+		$tekst = "wat dan?";
+	}
+
+	$fullwidth = mb_convert_kana(substr($tekst,11), "RNASKHC");
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $fullwidth));
 }
 ?>
