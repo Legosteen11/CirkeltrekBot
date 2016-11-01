@@ -652,20 +652,21 @@ else if (strlen(strstr($text,"/xkcd"))>0) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => xkcd($commando[0]), 'parse_mode' => HTML));
 }
 
+//vaporwave met reply
+else if (strlen(strstr($text,"/vaporwave"))>0 && $telegram->ReplyID()) {
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => mb_convert_kana($telegram->ReplyText(), "RNASKHC"), 'reply_to_message_id' => $telegram->ReplyID()));
+}
+
 //vaporwave
 else if (substr($text,0,10) == "/vaporwave") {
-	$tekst = str_replace('@CirkeltrekBot', '', substr($telegram->Text(), 11));
+	$tekst = substr($telegram->Text(), 11);
 
-	if ($tekst == "") {
-		$tekst = "wat dan?";
+	if ($text == "/vaporwave@cirkeltrekbot") {
+		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => "wat dan?", 'reply_to_message_id' => $telegram->MessageID()));
+		die();
 	}
 
 	$fullwidth = mb_convert_kana($tekst, "RNASKHC");
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $fullwidth));
-}
-
-//vaporwave met reply
-else if (strlen(strstr($text,"/vaporwave"))>0 && $telegram->ReplyID()) {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => mb_convert_kana($telegram->ReplyText(), "RNASKHC"), 'reply_to_message_id' => $telegram->ReplyID()));
 }
 ?>
