@@ -668,4 +668,34 @@ else if (substr($text,0,10) == "/vaporwave") {
 	$fullwidth = mb_convert_kana($tekst, "RNASKHC");
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $fullwidth));
 }
+
+//zoekfilmpje
+else if (substr($text,0,12) == "/zoekfilmpje") {
+    $zoekopdracht = substr($telegram->Text(), 13);
+    $trigger = '<a href="http://www.dumpert.nl/mediabase';
+
+    if ($text == "/zoekfilmpje@cirkeltrekbot") {
+        $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'http://www.dumpert.nl/mediabase/34614/6dd8b0fb/vroeger._toen_was_het_pas_keiglad.html'));
+    } else {
+        $zoekURL = 'http://www.dumpert.nl/search/ALL/' . rawurlencode($zoekopdracht) . '/';
+
+        $content = file_get_contents($zoekURL);
+
+        $positie = strpos($content, $trigger);
+
+        if ($positie !== false) {
+            $hooibaal = substr($content, $positie, $positie + 100);
+            $positieVanDeHREF = strpos($hooibaal, 'href="');
+            $positieVanHetEinde = strpos($hooibaal, '.html"');
+            if($positieVanDeHREF !== false && $positieVanHetEinde !== false) {
+                $link = substr($hooibaal, $positieVanDeHREF + 6, $positieVanHetEinde + 5);
+                $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $link));
+            } else {
+                $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'http://www.dumpert.nl/mediabase/34614/6dd8b0fb/vroeger._toen_was_het_pas_keiglad.html'));
+            }
+        } else {
+            $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'http://www.dumpert.nl/mediabase/34614/6dd8b0fb/vroeger._toen_was_het_pas_keiglad.html'));
+        }
+    }
+}
 ?>
