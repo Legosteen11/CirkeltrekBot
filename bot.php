@@ -654,6 +654,6 @@ else if (strlen(strstr($text,"/xkcd"))>0) {
 
 //vaporwave
 else if (substr($text,0,10) == "/vaporwave") {
-	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => mb_convert_kana(implode(' ',str_split(substr($telegram->Text(),11))), "RNASKHC")));
+	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => implode(' ',str_split(mb_convert_kana(substr($telegram->Text(),11), "RNASKHC")))));
 } 
 ?>
