@@ -670,11 +670,11 @@ else if (substr($text,0,10) == "/vaporwave") {
 }
 
 //zoekfilmpje
-else if (substr($text,0,12) == "/zoekfilmpje") {
-    $zoekopdracht = substr($telegram->Text(), 13);
+else if (substr($text,0,8) == "/dumpert") {
+    $zoekopdracht = substr($telegram->Text(), 9);
     $trigger = '<a href="http://www.dumpert.nl/mediabase';
 
-    if ($text == "/zoekfilmpje@cirkeltrekbot") {
+    if ($text == "/dumpert@cirkeltrekbot") {
         $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'http://www.dumpert.nl/mediabase/34614/6dd8b0fb/vroeger._toen_was_het_pas_keiglad.html'));
     } else {
         $zoekURL = 'http://www.dumpert.nl/search/ALL/' . rawurlencode($zoekopdracht) . '/';
