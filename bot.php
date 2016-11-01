@@ -662,8 +662,7 @@ else if (substr($text,0,10) == "/vaporwave") {
 	$tekst = substr($telegram->Text(), 11);
 
 	if ($text == "/vaporwave@cirkeltrekbot") {
-		$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => mb_convert_kana("vaporwave", "RNASKHC"), 'reply_to_message_id' => $telegram->MessageID()));
-		die();
+		$tekst = "vaporwave";
 	}
 
 	$fullwidth = mb_convert_kana($tekst, "RNASKHC");
