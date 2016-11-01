@@ -688,7 +688,7 @@ else if (substr($text,0,12) == "/zoekfilmpje") {
             $positieVanDeHREF = strpos($hooibaal, 'href="');
             $positieVanHetEinde = strpos($hooibaal, '.html"');
             if($positieVanDeHREF !== false && $positieVanHetEinde !== false) {
-                $link = substr($hooibaal, $positieVanDeHREF + 6, $positieVanHetEinde + 5);
+                $link = substr($hooibaal, $positieVanDeHREF + 6, $positieVanHetEinde - 4);
                 $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $link));
             } else {
                 $telegram->sendMessage(array('chat_id' => $chat_id, 'text' => 'http://www.dumpert.nl/mediabase/34614/6dd8b0fb/vroeger._toen_was_het_pas_keiglad.html'));
