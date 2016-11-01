@@ -660,7 +660,7 @@ else if (substr($text,0,10) == "/vaporwave") {
 		$tekst = "wat dan?";
 	}
 
-	$fullwidth = mb_convert_kana(substr($tekst,11), "RNASKHC");
+	$fullwidth = mb_convert_kana($tekst, "RNASKHC");
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => $fullwidth));
 }
 
