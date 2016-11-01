@@ -667,4 +667,5 @@ else if (substr($text,0,10) == "/vaporwave") {
 //vaporwave met reply
 else if (strlen(strstr($text,"/vaporwave"))>0 && $telegram->ReplyID()) {
 	$telegram->sendMessage(array('chat_id' => $chat_id, 'text' => mb_convert_kana($telegram->ReplyText(), "RNASKHC"), 'reply_to_message_id' => $telegram->ReplyID()));
+}
 ?>
